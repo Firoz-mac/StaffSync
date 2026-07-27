@@ -15,14 +15,14 @@ const WelcomeBanner = () => {
             <p className="text-slate-500">{today}</p>
         </div>
 
-        <div className='flex flex-wrap gap-3'>
+        <div className='flex flex-wrap gap-2'>
 
             <Button variant='outline'>
                 <Download size={18} />
-                Export Data
+                Export
             </Button>
 
-            <Button variant='primary'>
+            <Button variant='primary' className="flex-1 sm:flex-none justify-center">
                 <Plus size={18}/>
                 New Employee
             </Button>
