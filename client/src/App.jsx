@@ -11,6 +11,7 @@ import Reports from './pages/Reports'
 import Settings from './pages/Settings'
 import NotFound from './pages/NotFound'
 import MainLayout from './layouts/MainLayout'
+import AdminDashboard from './pages/dashboard/AdminDashboard'
 
 function App() {
 
@@ -19,12 +20,10 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
-        
-        
 
         <Route element={<MainLayout/>}>
 
-          <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path='/dashboard' element={<AdminDashboard/>}/>
           <Route path='/employees' element={<Employees/>}/>
           <Route path='/departments' element={<Departments/>}/>
           <Route path='/attendance' element={<Attendance/>}/>

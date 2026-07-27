@@ -1,0 +1,36 @@
+import { Download, Plus } from 'lucide-react'
+import React, { useEffect } from 'react'
+import Button from '../Button'
+import { formatCurrentDate } from '../../utils/formatDate'
+
+const WelcomeBanner = () => {
+
+    const today = formatCurrentDate();
+
+  return (
+    <div className='flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between'>
+
+        <div>
+            <h1 className="text-2xl font-semibold text-slate-900">Welcome Mac</h1>
+            <p className="text-slate-500">{today}</p>
+        </div>
+
+        <div className='flex flex-wrap gap-3'>
+
+            <Button variant='outline'>
+                <Download size={18} />
+                Export Data
+            </Button>
+
+            <Button variant='primary'>
+                <Plus size={18}/>
+                New Employee
+            </Button>
+
+        </div>
+
+    </div>
+  )
+}
+
+export default WelcomeBanner
