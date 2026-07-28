@@ -3,6 +3,9 @@ import WelcomeBanner from '../../components/dashboard/WelcomeBanner'
 import SummaryCardSection from '../../components/dashboard/summaryCard/SummaryCardSection'
 import EmployeeGrowthChart from '../../components/dashboard/admin/EmployeeGrowthChart'
 import DepartmentDistribution from '../../components/dashboard/admin/DepartmentDistribution'
+import AttendanceTrend from '../../components/dashboard/admin/AttendanceTrend'
+import LeaveStatistics from '../../components/dashboard/admin/leaveStatistics/LeaveStatistics'
+import MonthlyHiring from '../../components/dashboard/admin/MonthlyHiring'
 
 const AdminDashboard = () => {
 
@@ -12,13 +15,22 @@ const AdminDashboard = () => {
         <SummaryCardSection/>
 
         <div className='grid grid-cols-1 gap-6 lg:grid-cols-[4fr_2fr]'>
-          
-          <div>
+
+          <div className='grid grid-cols-1 gap-6'>
             <EmployeeGrowthChart/>
+
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+              <AttendanceTrend/>
+              <LeaveStatistics/>
+              <p>Recent Employees</p>
+              <p>Recent Activities</p>
+            </div>
+
           </div>
 
-          <div>
+          <div className='flex flex-col gap-6'>
             <DepartmentDistribution/>
+            <MonthlyHiring/>
           </div>
 
         </div>
