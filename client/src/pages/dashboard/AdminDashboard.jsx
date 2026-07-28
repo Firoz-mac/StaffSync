@@ -6,6 +6,8 @@ import DepartmentDistribution from '../../components/dashboard/admin/DepartmentD
 import AttendanceTrend from '../../components/dashboard/admin/AttendanceTrend'
 import LeaveStatistics from '../../components/dashboard/admin/leaveStatistics/LeaveStatistics'
 import MonthlyHiring from '../../components/dashboard/admin/MonthlyHiring'
+import RecentEmployees from '../../components/dashboard/admin/recentEmployees/RecentEmployees'
+import UpcomingBirthdays from '../../components/dashboard/admin/upcomingBirthdays/UpcomingBirthdays'
 
 const AdminDashboard = () => {
 
@@ -22,7 +24,7 @@ const AdminDashboard = () => {
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
               <AttendanceTrend/>
               <LeaveStatistics/>
-              <p>Recent Employees</p>
+              <RecentEmployees/>
               <p>Recent Activities</p>
             </div>
 
@@ -31,6 +33,7 @@ const AdminDashboard = () => {
           <div className='flex flex-col gap-6'>
             <DepartmentDistribution/>
             <MonthlyHiring/>
+            <UpcomingBirthdays/>
           </div>
 
         </div>
