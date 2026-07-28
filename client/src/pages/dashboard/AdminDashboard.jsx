@@ -8,6 +8,8 @@ import LeaveStatistics from '../../components/dashboard/admin/leaveStatistics/Le
 import MonthlyHiring from '../../components/dashboard/admin/MonthlyHiring'
 import RecentEmployees from '../../components/dashboard/admin/recentEmployees/RecentEmployees'
 import UpcomingBirthdays from '../../components/dashboard/admin/upcomingBirthdays/UpcomingBirthdays'
+import HolidaysAndEvents from '../../components/dashboard/holidaysAndEvents/HolidaysAndEvents'
+import Announcements from '../../components/dashboard/Announcements'
 
 const AdminDashboard = () => {
 
@@ -34,6 +36,8 @@ const AdminDashboard = () => {
             <DepartmentDistribution/>
             <MonthlyHiring/>
             <UpcomingBirthdays/>
+            <HolidaysAndEvents/>
+            <Announcements/>
           </div>
 
         </div>
