@@ -4,7 +4,7 @@ import { adminSummaryCards } from '../../../constants/dashboard/adminSummaryCard
 
 const SummaryCardSection = () => {
   return (
-    <div className='grid grid-cols-2 lg:grid-cols-6 gap-2 py-5'>
+    <div className='grid grid-cols-2 lg:grid-cols-4 gap-2 py-5'>
         {adminSummaryCards.map((card)=>(
             <SummaryCard 
                 key={card.id} 

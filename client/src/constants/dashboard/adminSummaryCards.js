@@ -4,6 +4,8 @@ import {
     Building2,
     CalendarCheck,
     Clock3,
+    UserRoundX,
+    ClipboardClock,
 } from "lucide-react";
 
 export const adminSummaryCards = [
@@ -12,6 +14,7 @@ export const adminSummaryCards = [
         title: "Total Employees",
         value: 1240,
         icon: UsersRound,
+        iconVariant: "blue",
         trendValue: "2.4%",
         trendDirection: "positive"
     },
@@ -20,36 +23,22 @@ export const adminSummaryCards = [
         title: "Present Today",
         value: 1185,
         icon: CalendarCheck,
+        iconVariant: "success",
         tag: "Daily",
     },
     {
         id: 3,
-        title: "Pending Requests",
-        value: 16,
-        icon: Clock3,
-        trendValue: "-4.1%",
-        trendDirection: "negative"
+        title: "Absent Today",
+        value: 60,
+        icon: UserRoundX,
+        iconVariant: "danger",
+        tag: "Daily",
     },
     {
         id: 4,
-        title: "Departments",
+        title: "Leave Requests",
         value: 12,
-        icon: Building2,
-    },
-    {
-        id: 5,
-        title: "Departments",
-        value: 12,
-        icon: Building2,
-        trendValue: "1.2%",
-        trendDirection: "positive"
-    },
-    {
-        id: 6,
-        title: "Departments",
-        value: 12,
-        icon: Building2,
-        trendValue: "1.2%",
-        trendDirection: "positive"
+        icon: ClipboardClock,
+        iconVariant: "amber",
     },
 ]

@@ -8,6 +8,7 @@ const SummaryCard = ({
   tag = null,
   trendValue = null,
   trendDirection = null,
+  iconVariant = "blue",
 }) => {
 
   const TrendIcon = 
@@ -16,6 +17,13 @@ const SummaryCard = ({
         ? TrendingUp 
         : TrendingDown 
       : null
+
+  const iconVariants = {
+    blue: "lg:bg-sky-100 text-sky-600",
+    danger: "lg:bg-red-100 text-red-600",
+    success: "lg:bg-emerald-100 text-emerald-600",
+    amber: "lg:bg-amber-100 text-amber-600",
+  }
 
   return (
     <div 
@@ -28,8 +36,9 @@ const SummaryCard = ({
         <div className='flex items-center justify-between'>
 
           <div 
-            className="flex h-5 w-5 lg:h-12 lg:w-12 items-center justify-center 
-            rounded-lg lg:bg-violet-100 text-violet-600"
+            className={`flex h-5 w-5 lg:h-12 lg:w-12 items-center justify-center rounded-lg 
+              ${iconVariants[iconVariant]}
+            `}
           >
             <Icon 
               aria-hidden="true" 
