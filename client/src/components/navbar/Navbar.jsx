@@ -11,7 +11,10 @@ const Navbar = () => {
   const {title} = useCurrentPage();
 
   return (
-    <nav className='flex w-full h-16 justify-between border-b border-gray-200 px-6'>
+    <nav 
+      className='flex w-full h-16 justify-between 
+      border-b border-slate-200 dark:border-slate-700 px-6'
+    >
 
       <div className='flex items-center gap-4'>
 
@@ -24,7 +27,7 @@ const Navbar = () => {
           <Menu size={22}/>
         </button>
 
-        <h1 className="text-xl font-semibold text-slate-800">
+        <h1 className="text-xl font-semibold text-slate-800 dark:text-slate-100">
           {title}
         </h1>
 

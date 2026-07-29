@@ -8,7 +8,10 @@ const MainLayout = () => {
     <div className='flex'>
         <Sidebar/>
 
-        <div className='min-h-screen flex-1 lg:ml-64'>
+        <div 
+          className='min-h-screen bg-slate-50 
+          text-slate-900 dark:bg-slate-950 dark:text-slate-100 flex-1 lg:ml-64'
+        >
 
           <Navbar/>
 
