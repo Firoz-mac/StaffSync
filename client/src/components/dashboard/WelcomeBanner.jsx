@@ -2,6 +2,7 @@ import { Download, Plus } from 'lucide-react'
 import React, { useEffect } from 'react'
 import Button from '../Button'
 import { formatCurrentDate } from '../../utils/formatDate'
+import ErrorState from '../errorState/ErrorState'
 
 const WelcomeBanner = () => {
 
@@ -30,6 +31,9 @@ const WelcomeBanner = () => {
         </div>
 
     </div>
+    // <ErrorState 
+    //     description='We couldnt load your dashboard information. Please refresh the page.'
+    // />
   )
 }
 

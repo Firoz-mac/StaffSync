@@ -2,6 +2,9 @@ import React from 'react'
 import ProgressBar from './ProgressBar'
 import { leaveStatisticsData } from '../../../../constants/dashboard/leaveStatisticsData'
 import { leaveStatisticsBarPercentage } from '../../../../utils/chartUtils'
+import ListSkeleton from '../../../skeleton/ListSkeleton'
+import EmptyState from '../../../emptyState/EmptyState'
+import ErrorState from '../../../errorState/ErrorState'
 
 const LeaveStatistics = () => {
 
@@ -22,6 +25,15 @@ const LeaveStatistics = () => {
         }
       </div>
     </div>
+    // <EmptyState 
+    //   title='No leave data' 
+    //   description='Leave statistics will be shown here.'
+    // />
+    // <ErrorState 
+    //   title='Failed to load leave statistics' 
+    //   description='Leave data is currently unavailable.'
+    // />
+    // <ListSkeleton/>
   )
 }
 

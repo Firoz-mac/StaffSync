@@ -1,5 +1,9 @@
 import React from 'react'
 import EmployeeListItem from './EmployeeListItem';
+import ListSkeleton from '../../../skeleton/ListSkeleton';
+import EmptyState from '../../../emptyState/EmptyState';
+import { Users } from "lucide-react";
+import ErrorState from '../../../errorState/ErrorState';
 
 const RecentEmployees = () => {
 
@@ -87,6 +91,16 @@ const RecentEmployees = () => {
         </div>
 
     </div>
+    // <EmptyState
+    //     icon={Users} 
+    //     title="No employees found" 
+    //     description="Employees will appear here once they're added."
+    // />
+    // <ErrorState 
+    //     title='Failed to load employees' 
+    //     description='We couldnt load the latest employee records.'
+    // />
+    // <ListSkeleton/>
   )
 }
 

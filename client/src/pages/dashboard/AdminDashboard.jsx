@@ -10,6 +10,7 @@ import RecentEmployees from '../../components/dashboard/admin/recentEmployees/Re
 import UpcomingBirthdays from '../../components/dashboard/admin/upcomingBirthdays/UpcomingBirthdays'
 import HolidaysAndEvents from '../../components/dashboard/holidaysAndEvents/HolidaysAndEvents'
 import Announcements from '../../components/dashboard/Announcements'
+import RecentActivities from '../../components/dashboard/admin/recentActivities/RecentActivities'
 
 const AdminDashboard = () => {
 
@@ -18,16 +19,16 @@ const AdminDashboard = () => {
         <WelcomeBanner/>
         <SummaryCardSection/>
 
-        <div className='grid grid-cols-1 gap-6 lg:grid-cols-[4fr_2fr]'>
+        <div className='grid grid-cols-1 gap-6 items-start lg:grid-cols-[4fr_2fr]'>
 
           <div className='grid grid-cols-1 gap-6'>
             <EmployeeGrowthChart/>
 
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+            <div className='grid grid-cols-1 gap-6 lg:grid-cols-2'>
               <AttendanceTrend/>
               <LeaveStatistics/>
               <RecentEmployees/>
-              <p>Recent Activities</p>
+              <RecentActivities/>
             </div>
 
           </div>

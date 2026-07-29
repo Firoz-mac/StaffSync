@@ -2,6 +2,9 @@ import { Cake } from 'lucide-react'
 import React from 'react'
 import BirthdayCard from './BirthdayCard'
 import { isUpcomingBirthday } from '../../../../utils/formatDate';
+import ListSkeleton from '../../../skeleton/ListSkeleton';
+import EmptyState from '../../../emptyState/EmptyState';
+import ErrorState from '../../../errorState/ErrorState';
 
 const UpcomingBirthdays = () => {
 
@@ -54,6 +57,16 @@ const UpcomingBirthdays = () => {
         </div>
 
     </div>
+    // <EmptyState
+    //     icon={Cake} 
+    //     title='No upcoming birthdays' 
+    //     description='No employees have birthdays in the next 3 days.'
+    // />
+    // <ErrorState 
+    //     title='Failed to load birthdays' 
+    //     description='Birthday information couldnt be retrieved.'
+    // />
+    // <ListSkeleton/>
   )
 }
 

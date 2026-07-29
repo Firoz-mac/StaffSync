@@ -10,6 +10,9 @@ import {
   CartesianGrid,
 } from "recharts";
 import { employeeGrowthData } from '../../../constants/dashboard/employeeGrowthData';
+import ChartSkeleton from '../../skeleton/ChartSkeleton';
+import EmptyState from '../../emptyState/EmptyState';
+import ErrorState from '../../errorState/ErrorState';
 
 const EmployeeGrowthChart = () => {
 
@@ -80,6 +83,15 @@ const EmployeeGrowthChart = () => {
             </ResponsiveContainer>
         </div>
     </div>
+    // <EmptyState 
+    //     title='No growth data' 
+    //     description="Employee growth statistics will appear here."
+    // />
+    // <ErrorState 
+    //     title='Failed to load employee growth' 
+    //     description='We couldnt retrieve employee growth data. Please try again later.'
+    // />
+    // <ChartSkeleton/>
   )
 }
 

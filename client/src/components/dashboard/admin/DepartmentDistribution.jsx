@@ -7,6 +7,9 @@ import {
 } from "recharts";
 import { departmentDistributionData } from '../../../constants/dashboard/departmentDistributionData';
 import { departmentPieChartPercentage } from '../../../utils/chartUtils';
+import ChartSkeleton from '../../skeleton/ChartSkeleton';
+import EmptyState from '../../emptyState/EmptyState';
+import ErrorState from '../../errorState/ErrorState';
 
 const DepartmentDistribution = () => {
 
@@ -60,6 +63,15 @@ const DepartmentDistribution = () => {
             
         </div>
     </div>
+    // <EmptyState 
+    //     title='No departments' 
+    //     description='Department distribution is unavailable.'
+    // />
+    // <ErrorState 
+    //     title='Failed to load departments' 
+    //     description='Department distribution data is unavailable at the moment.'
+    // />
+    // <ChartSkeleton/>
   )
 }
 

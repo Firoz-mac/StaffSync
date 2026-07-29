@@ -1,6 +1,9 @@
 import React from 'react'
 import { Megaphone } from "lucide-react";
 import { formatDateAndMonth, isToday } from '../../utils/formatDate';
+import ListSkeleton from '../skeleton/ListSkeleton';
+import EmptyState from '../emptyState/EmptyState';
+import ErrorState from '../errorState/ErrorState';
 
 const Announcements = () => {
 
@@ -92,6 +95,16 @@ const Announcements = () => {
         </button>
 
     </section>
+    // <EmptyState 
+    //     icon={Megaphone}
+    //     title="No announcements"
+    //     description="There are no announcements at the moment."
+    // />
+    // <ErrorState 
+    //     title='Failed to load announcements' 
+    //     description='We couldnt retrieve the latest announcements.'
+    // />
+    // <ListSkeleton/>
   )
 }
 

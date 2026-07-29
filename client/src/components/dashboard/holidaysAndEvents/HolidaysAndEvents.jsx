@@ -1,7 +1,10 @@
 import React from 'react'
 import HolidayCard from './HolidayCard'
-import { ChevronRight } from "lucide-react";
+import { Calendar, ChevronRight } from "lucide-react";
 import { isUpcomingDate } from '../../../utils/formatDate';
+import ListSkeleton from '../../skeleton/ListSkeleton';
+import EmptyState from '../../emptyState/EmptyState';
+import ErrorState from '../../errorState/ErrorState';
 
 const HolidaysAndEvents = () => {
 
@@ -69,6 +72,16 @@ const HolidaysAndEvents = () => {
       </div>
 
     </div>
+    // <EmptyState 
+    //   icon={Calendar} 
+    //   title='No upcoming events or holidays' 
+    //   description='There are no upcoming events or holidays at the moment.'
+    // />
+    // <ErrorState 
+    //   title='Failed to load holidays' 
+    //   description='Upcoming holidays and events couldnt be loaded.'
+    // />
+    // <ListSkeleton/>
   )
 }
 

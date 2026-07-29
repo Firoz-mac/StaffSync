@@ -1,5 +1,6 @@
 import React from 'react'
 import { UsersRound, TrendingUp, TrendingDown } from "lucide-react";
+import ErrorState from '../../errorState/ErrorState';
 
 const SummaryCard = ({
   title,
@@ -92,6 +93,10 @@ const SummaryCard = ({
       </h2>
 
     </div>
+    // <ErrorState 
+    //   title='Failed to load summary' 
+    //   description='Employee statistics are currently unavailable. Please try again.'
+    // />
   )
 }
 

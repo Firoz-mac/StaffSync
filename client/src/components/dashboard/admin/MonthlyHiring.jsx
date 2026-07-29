@@ -7,6 +7,9 @@ import {
   YAxis,
   Cell,
 } from "recharts";
+import ChartSkeleton from '../../skeleton/ChartSkeleton';
+import EmptyState from '../../emptyState/EmptyState';
+import ErrorState from '../../errorState/ErrorState';
 
 const MonthlyHiring = () => {
 
@@ -74,6 +77,15 @@ const MonthlyHiring = () => {
         </ResponsiveContainer>
       </div>
     </div>
+    // <EmptyState 
+    //   title='No hiring data' 
+    //   description='Hiring trends will appear here.'
+    // />
+    // <ErrorState 
+    //   title='Failed to load hiring data' 
+    //   description='Hiring statistics couldnt be retrieved.'
+    // />
+    // <ChartSkeleton/>
   )
 }
 

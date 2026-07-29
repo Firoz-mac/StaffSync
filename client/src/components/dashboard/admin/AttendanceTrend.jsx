@@ -7,6 +7,9 @@ import {
   YAxis,
   Tooltip,
 } from "recharts";
+import ChartSkeleton from '../../skeleton/ChartSkeleton';
+import EmptyState from '../../emptyState/EmptyState';
+import ErrorState from '../../errorState/ErrorState';
 
 const AttendanceTrend = () => {
 
@@ -69,6 +72,15 @@ const AttendanceTrend = () => {
         </div>
 
     </div>
+    // <EmptyState 
+    //     title='No attendance records' 
+    //     description='Attendance data will appear here.'
+    // />
+    // <ErrorState 
+    //     title='Failed to load attendance' 
+    //     description='Attendance records couldnt be loaded. Please try again.'
+    // />
+    // <ChartSkeleton/>
   )
 }
 
