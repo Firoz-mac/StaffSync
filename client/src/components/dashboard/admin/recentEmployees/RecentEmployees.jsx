@@ -2,8 +2,8 @@ import React from 'react'
 import EmployeeListItem from './EmployeeListItem';
 import ListSkeleton from '../../../skeleton/ListSkeleton';
 import EmptyState from '../../../emptyState/EmptyState';
-import { Users } from "lucide-react";
 import ErrorState from '../../../errorState/ErrorState';
+import Card from '../../../Card';
 
 const RecentEmployees = () => {
 
@@ -67,13 +67,14 @@ const RecentEmployees = () => {
     ];
     
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm lg:p-6">
+    <Card className="p-4 lg:p-6">
 
         <div className="mb-6 flex items-center justify-between">
-            <h4 className="text-lg font-semibold text-slate-900">Recent Employees</h4>
+            <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Recent Employees</h4>
             <button 
                 type='button' 
-                className="text-sm font-medium text-blue-600 hover:text-blue-700 cursor-pointer"
+                className="text-sm font-medium text-blue-600 hover:text-blue-700 
+                dark:text-blue-400 dark:hover:text-blue-300 cursor-pointer"
             >
                 View All
             </button>
@@ -81,16 +82,16 @@ const RecentEmployees = () => {
 
         <div className='flex flex-col gap-7 h-150'>
             {
-                recentEmployeesData.map((data)=>(
+                recentEmployeesData.map((employee)=>(
                     <EmployeeListItem 
-                        key={data.id} 
-                        data={data}
+                        key={employee.id} 
+                        data={employee}
                     />
                 ))
             }
         </div>
 
-    </div>
+    </Card>
     // <EmptyState
     //     icon={Users} 
     //     title="No employees found" 

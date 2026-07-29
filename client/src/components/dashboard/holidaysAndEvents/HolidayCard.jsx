@@ -3,14 +3,16 @@ import { formatDateAndMonth } from '../../../utils/formatDate'
 
 const HolidayCard = ({data}) => {
 
-  const { month, day } = formatDateAndMonth(data.date);
+  const { title, tag, date } = data;
+
+  const { month, day } = formatDateAndMonth(date);
 
   return (
     <div className='w-full flex gap-3'>
 
       <div 
-        className='flex h-16 w-16 flex-col items-center justify-center 
-        rounded-xl bg-blue-100 text-blue-600'
+        className='flex h-16 w-16 flex-col items-center justify-center shrink-0
+        rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
       >
         <span className="text-xs font-semibold tracking-wide uppercase">
           {month}
@@ -21,11 +23,11 @@ const HolidayCard = ({data}) => {
       </div>
 
       <div className='flex flex-1 flex-col justify-center'>
-        <h4 className="font-semibold text-slate-900">
-          {data.title}
+        <h4 className="font-semibold text-slate-900 dark:text-slate-100">
+          {title}
         </h4>
-        <p className="mt-px text-sm text-slate-500">
-          {data.tag}
+        <p className="mt-px text-sm text-slate-500 dark:text-slate-400">
+          {tag}
         </p>
       </div>
 

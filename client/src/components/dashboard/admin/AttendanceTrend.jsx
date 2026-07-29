@@ -10,8 +10,13 @@ import {
 import ChartSkeleton from '../../skeleton/ChartSkeleton';
 import EmptyState from '../../emptyState/EmptyState';
 import ErrorState from '../../errorState/ErrorState';
+import Card from '../../Card';
+import { useThemeStore } from '../../../store/useThemeStore';
 
 const AttendanceTrend = () => {
+
+    const { theme } = useThemeStore();
+    const isDark = theme === "dark";
 
     const attendanceTrendData = [
         { day: "M", present: 68, absent: 12 },
@@ -24,8 +29,9 @@ const AttendanceTrend = () => {
     ];
 
   return (
-    <div className='rounded-xl border border-slate-200 bg-white p-4 shadow-sm lg:p-6'>
-        <h4 className="text-lg font-semibold text-slate-900">Attendance Trend</h4>
+    <Card className='p-4 lg:p-6'>
+        
+        <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Attendance Trend</h4>
 
         <div className="h-72 mt-4">
 
@@ -40,7 +46,7 @@ const AttendanceTrend = () => {
                         axisLine={false}
                         tickLine={false}
                         tick={{
-                            fill: "#334155",
+                            fill: isDark ? "#CBD5E1" : "#334155",
                             fontSize: 14,
                             fontWeight: 600,
                         }}
@@ -49,7 +55,18 @@ const AttendanceTrend = () => {
 
                     <YAxis hide />
 
-                    <Tooltip cursor={false} />
+                    <Tooltip 
+                        cursor={false} 
+                        contentStyle={{
+                            borderRadius: "12px",
+                            border: `1px solid ${isDark ? "#334155" : "#e2e8f0"}`,
+                            backgroundColor: isDark ? "#0f172a" : "#ffffff",
+                            color: isDark ? "#f8fafc" : "#0f172a",
+                        }}
+                        labelStyle={{
+                            color: isDark ? "#f8fafc" : "#0f172a",
+                        }}
+                    />
 
                     <Bar 
                         dataKey="present" 
@@ -71,7 +88,7 @@ const AttendanceTrend = () => {
 
         </div>
 
-    </div>
+    </Card>
     // <EmptyState 
     //     title='No attendance records' 
     //     description='Attendance data will appear here.'

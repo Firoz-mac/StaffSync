@@ -1,24 +1,27 @@
-import { User } from 'lucide-react'
 import React from 'react'
 import Avatar from '../../../Avatar'
 
 const EmployeeListItem = ({data}) => {
+
+    const { name, avatar, role, joined } = data;
+
   return (
-    <div className='flex gap-3'>
+    <div className='flex items-center gap-3'>
         
-        <Avatar name={data.name} avatar={data.avatar}/>
+        <Avatar name={name} avatar={avatar}/>
         
         <div className='min-w-0 flex-1'>
-            <h5 className="truncate font-semibold text-slate-900 text-wrap">
-                {data.name}
+            <h5 className="truncate font-semibold text-slate-900 dark:text-slate-100">
+                {name}
             </h5>
 
-            <p className="truncate text-sm text-slate-500">
-                {data.role}
-                {" • "}
-                {data.joined}
+            <p className="truncate text-sm text-slate-500 dark:text-slate-400">
+                {role}
+                <span className="mx-1">•</span>
+                {joined}
             </p>
         </div>
+
     </div>
   )
 }

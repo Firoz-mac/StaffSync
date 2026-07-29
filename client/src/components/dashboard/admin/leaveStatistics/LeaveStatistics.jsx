@@ -5,14 +5,16 @@ import { leaveStatisticsBarPercentage } from '../../../../utils/chartUtils'
 import ListSkeleton from '../../../skeleton/ListSkeleton'
 import EmptyState from '../../../emptyState/EmptyState'
 import ErrorState from '../../../errorState/ErrorState'
+import Card from '../../../Card'
 
 const LeaveStatistics = () => {
 
   const progressBarData = leaveStatisticsBarPercentage(leaveStatisticsData);
 
   return (
-    <div className='rounded-xl border border-slate-200 bg-white p-4 shadow-sm lg:p-6'>
-      <h4 className="text-lg font-semibold text-slate-900">Leave Statistics</h4>
+    <Card className='p-4 lg:p-6'>
+  
+      <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Leave Statistics</h4>
 
       <div className="mt-6 space-y-8">
         {
@@ -24,7 +26,8 @@ const LeaveStatistics = () => {
           ))
         }
       </div>
-    </div>
+
+    </Card>
     // <EmptyState 
     //   title='No leave data' 
     //   description='Leave statistics will be shown here.'

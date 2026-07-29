@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   ResponsiveContainer,
   ComposedChart,
@@ -7,22 +7,28 @@ import {
   YAxis,
   Tooltip,
   Area,
-  CartesianGrid,
 } from "recharts";
 import { employeeGrowthData } from '../../../constants/dashboard/employeeGrowthData';
 import ChartSkeleton from '../../skeleton/ChartSkeleton';
 import EmptyState from '../../emptyState/EmptyState';
 import ErrorState from '../../errorState/ErrorState';
+import Card from '../../Card';
+import { useThemeStore } from '../../../store/useThemeStore';
 
 const EmployeeGrowthChart = () => {
 
+    const { theme } = useThemeStore();
+    const isDark = theme === "dark";
+
   return (
-    <div className='rounded-xl border border-slate-200 bg-white p-4 shadow-sm lg:p-6'>
+    <Card className='p-4 lg:p-6'>
+        
         <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-slate-900">Employee Growth</h2>
+            <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Employee Growth</h2>
             <button 
-                className='rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium 
-                text-slate-700 transition-colors hover:bg-slate-100 cursor-pointer'
+                className='rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 
+                px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 transition-colors 
+                hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer'
             >
                 Last 12 Months
             </button>
@@ -30,7 +36,7 @@ const EmployeeGrowthChart = () => {
 
         <div 
             className='mt-8 flex h-80 items-center justify-center rounded-lg 
-            border border-dashed border-slate-200'
+            border border-dashed border-slate-200 dark:border-slate-700'
         >
             <ResponsiveContainer width="100%" height="100%">
                 <ComposedChart data={employeeGrowthData}>
@@ -57,12 +63,25 @@ const EmployeeGrowthChart = () => {
                         dataKey="month" 
                         axisLine={false} 
                         tickLine={false}
+                        tick={{ fill: isDark ? "#94a3b8" : "#64748b", }}
                     />
                     <YAxis 
                         axisLine={false} 
                         tickLine={false}
+                        tick={{ fill: isDark ? "#94a3b8" : "#64748b" }}
                     />
-                    <Tooltip />
+
+                    <Tooltip
+                        contentStyle={{
+                            borderRadius: "12px",
+                            border: `1px solid ${isDark ? "#334155" : "#e2e8f0"}`,
+                            backgroundColor: isDark ? "#0f172a" : "#fff",
+                            color: isDark ? "#f8fafc" : "#0f172a",
+                        }}
+                        labelStyle={{
+                            color: isDark ? "#f8fafc" : "#0f172a",
+                        }}
+                    />
 
                     <Area 
                         type="monotone" 
@@ -77,12 +96,17 @@ const EmployeeGrowthChart = () => {
                         stroke="#2563eb"
                         strokeWidth={3}
                         dot={false}
-                        activeDot={{ r: 5 }}
+                        activeDot={{ 
+                            r: 6, 
+                            fill: "#2563eb", 
+                            stroke: "#fff", 
+                            strokeWidth: 2, 
+                        }}
                     />
                 </ComposedChart>
             </ResponsiveContainer>
         </div>
-    </div>
+    </Card>
     // <EmptyState 
     //     title='No growth data' 
     //     description="Employee growth statistics will appear here."

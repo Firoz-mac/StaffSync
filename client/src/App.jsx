@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
 import './App.css'
 import Dashboard from './pages/Dashboard'
@@ -12,8 +12,15 @@ import Settings from './pages/Settings'
 import NotFound from './pages/NotFound'
 import MainLayout from './layouts/MainLayout'
 import AdminDashboard from './pages/dashboard/AdminDashboard'
+import { useThemeStore } from './store/useThemeStore'
 
 function App() {
+
+  const theme = useThemeStore((state) => state.theme);
+
+  useEffect(()=> {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  }, [theme]);
 
   return (
     <>

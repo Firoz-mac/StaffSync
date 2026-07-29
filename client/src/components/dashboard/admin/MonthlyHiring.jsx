@@ -6,12 +6,18 @@ import {
   XAxis,
   YAxis,
   Cell,
+  Tooltip,
 } from "recharts";
 import ChartSkeleton from '../../skeleton/ChartSkeleton';
 import EmptyState from '../../emptyState/EmptyState';
 import ErrorState from '../../errorState/ErrorState';
+import Card from '../../Card';
+import { useThemeStore } from '../../../store/useThemeStore';
 
 const MonthlyHiring = () => {
+
+  const { theme } = useThemeStore();
+  const isDark = theme === "dark";
 
   const monthlyHiringData = [
     {
@@ -37,8 +43,9 @@ const MonthlyHiring = () => {
   ];
   
   return (
-    <div className='rounded-xl border border-slate-200 bg-white p-4 shadow-sm lg:p-6'>
-      <h4 className="text-lg font-semibold text-slate-900">Monthly Hiring</h4>
+    <Card className='p-4 lg:p-6'>
+      
+      <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Monthly Hiring</h4>
 
       <div className="h-72 mt-6">
         <ResponsiveContainer width="100%" height="100%">
@@ -53,7 +60,7 @@ const MonthlyHiring = () => {
               tick={{
                 fontSize: 12,
                 fontWeight: 700,
-                fill: "#64748B",
+                fill: isDark ? "#CBD5E1" : "#64748B",
               }}
             />
 
@@ -62,21 +69,41 @@ const MonthlyHiring = () => {
             <Bar 
               dataKey="hired" 
               radius={[6, 6, 0, 0]}
+              animationDuration={800}
             >
 
-              {monthlyHiringData.map((data)=>(
+              {monthlyHiringData.map((entry)=>(
                 <Cell 
-                  key={data.month} 
-                  fill={data.active ? "#1D4ED8" : "#C7D2FE"}
+                  key={entry.month} 
+                  fill={entry.active ? "#1D4ED8" : "#C7D2FE"}
                 />
               ))}
 
             </Bar>
 
+            <Tooltip
+              cursor={false}
+              formatter={(value) => [`${value} Employees`, "Hired"]}
+              contentStyle={{
+                borderRadius: "12px",
+                border: `1px solid ${isDark ? "#334155" : "#E2E8F0"}`,
+                backgroundColor: isDark ? "#0F172A" : "#FFFFFF",
+                color: isDark ? "#F8FAFC" : "#0F172A",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+              }}
+              labelStyle={{
+                color: isDark ? "#F8FAFC" : "#0F172A",
+                fontWeight: 600,
+              }}
+              itemStyle={{
+                color: isDark ? "#F8FAFC" : "#0F172A",
+              }}
+            />
+
           </BarChart>
         </ResponsiveContainer>
       </div>
-    </div>
+    </Card>
     // <EmptyState 
     //   title='No hiring data' 
     //   description='Hiring trends will appear here.'

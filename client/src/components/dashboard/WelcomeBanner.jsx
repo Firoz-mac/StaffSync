@@ -12,8 +12,8 @@ const WelcomeBanner = () => {
     <div className='flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between'>
 
         <div>
-            <h1 className="text-2xl font-semibold text-slate-900">Welcome Mac</h1>
-            <p className="text-slate-500">{today}</p>
+            <h1 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">Welcome Mac</h1>
+            <p className="text-slate-500 dark:text-slate-400">{today}</p>
         </div>
 
         <div className='flex flex-wrap gap-2'>

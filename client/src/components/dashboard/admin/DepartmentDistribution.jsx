@@ -10,14 +10,16 @@ import { departmentPieChartPercentage } from '../../../utils/chartUtils';
 import ChartSkeleton from '../../skeleton/ChartSkeleton';
 import EmptyState from '../../emptyState/EmptyState';
 import ErrorState from '../../errorState/ErrorState';
+import Card from '../../Card';
 
 const DepartmentDistribution = () => {
 
     const chartData = departmentPieChartPercentage(departmentDistributionData);
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h4 className="text-lg font-semibold text-slate-900">Dept. Distribution</h4>
+    <Card className="p-6 lg:p-6">
+
+        <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Dept. Distribution</h4>
 
         <div className='h-71'>
 
@@ -49,11 +51,15 @@ const DepartmentDistribution = () => {
                         key={dept.name} 
                         className='flex gap-2 items-center'
                     >
-                        <span 
+                        <span
+                            aria-hidden="true" 
                             className='w-4 h-4 rounded-full' 
                             style={{ backgroundColor: dept.color }}
                         />
-                        <span className="flex text-sm font-medium text-slate-700 gap-px items-center">
+                        <span 
+                            className="flex text-sm font-medium text-slate-500 dark:text-slate-400 
+                            gap-px items-center"
+                        >
                             {dept.name} 
                             <span className='font-normal'>({dept.percentage}%)</span>
                         </span>
@@ -62,7 +68,7 @@ const DepartmentDistribution = () => {
             }
             
         </div>
-    </div>
+    </Card>
     // <EmptyState 
     //     title='No departments' 
     //     description='Department distribution is unavailable.'

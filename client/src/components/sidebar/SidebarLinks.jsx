@@ -26,10 +26,10 @@ const SidebarLinks = () => {
                             key={link.path}
                             onClick={handleNavLinkClick}
                             className={({ isActive }) =>
-                                `flex w-full items-center gap-3 px-4 py-3 rounded-lg transition-colors 
+                                `flex w-full items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200 
                                 ${isActive
                                     ? "bg-blue-600 text-white"
-                                    : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                                    : "text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-800 "
                                 }`
                             }
                         >
