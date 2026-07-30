@@ -30,7 +30,7 @@ function App() {
 
         <Route element={<MainLayout/>}>
 
-          <Route path='/dashboard' element={<AdminDashboard/>}/>
+          <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='/employees' element={<Employees/>}/>
           <Route path='/departments' element={<Departments/>}/>
           <Route path='/attendance' element={<Attendance/>}/>

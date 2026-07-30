@@ -3,8 +3,15 @@ import { NavLink } from "react-router-dom";
 import { sidebarLinks } from '../../constants/sidebarLinks';
 import { useSidebarStore } from '../../store/sidebarStore';
 import UserAccount from './UserAccount';
+import { useAuthStore } from '../../store/authStore';
 
 const SidebarLinks = () => {
+
+    const role = useAuthStore((state)=> state.user?.role);
+
+    const filteredLinks = sidebarLinks.filter((link)=>
+        link.roles.includes(role)
+    );
 
     const { closeSidebar } = useSidebarStore();
 
@@ -17,7 +24,7 @@ const SidebarLinks = () => {
 
             <div className='space-y-2'>
 
-                {sidebarLinks.map((link) => {
+                {filteredLinks.map((link) => {
                     const Icon = link.icon;
 
                     return (

@@ -18,6 +18,7 @@ const Button = ({
         outline: "border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800",
         danger: "bg-red-600 text-white hover:bg-red-700",
         success: "bg-emerald-600 text-white hover:bg-emerald-700",
+        white: "bg-slate-100 hover:bg-slate-200 text-blue-600 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-100",
     }
 
   return (
