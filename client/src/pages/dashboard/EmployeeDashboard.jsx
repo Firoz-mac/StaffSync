@@ -3,6 +3,7 @@ import WelcomeBanner from '../../components/dashboard/WelcomeBanner'
 import SummaryCardSection from '../../components/dashboard/summaryCard/SummaryCardSection'
 import Announcements from '../../components/dashboard/Announcements'
 import MySchedule from '../../components/dashboard/employee/mySchedule/MySchedule'
+import ProfileCompletionCard from '../../components/dashboard/employee/ProfileCompletionCard'
 
 const EmployeeDashboard = () => {
   return (
@@ -19,7 +20,9 @@ const EmployeeDashboard = () => {
           
         </div>
 
-        <div  className='flex flex-col gap-6'></div>
+        <div  className='flex flex-col gap-6'>
+          <ProfileCompletionCard/>
+        </div>
 
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import ProgressBar from './ProgressBar'
+import ProgressBar from '../../ProgressBar'
 import { leaveStatisticsData } from '../../../../constants/dashboard/leaveStatisticsData'
 import { leaveStatisticsBarPercentage } from '../../../../utils/chartUtils'
 import ListSkeleton from '../../../skeleton/ListSkeleton'
@@ -18,10 +18,12 @@ const LeaveStatistics = () => {
 
       <div className="mt-6 space-y-8">
         {
-          progressBarData.map((leave)=>(
+          progressBarData.map(({type, count, color})=>(
             <ProgressBar 
-              key={leave.type} 
-              leave={leave}
+              key={type}
+              type={type}
+              percentage={count}
+              barColor={color}
             />
           ))
         }
