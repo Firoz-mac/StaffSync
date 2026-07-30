@@ -33,7 +33,7 @@ const HolidaysAndEvents = () => {
 
   const filteredHolidaysAndEventsData = holidaysAndEventsData.filter((event)=>
     isUpcomingDate(event.date, 15)
-  )
+  );
 
   return (
     <Card>
