@@ -4,6 +4,7 @@ import SummaryCardSection from '../../components/dashboard/summaryCard/SummaryCa
 import Announcements from '../../components/dashboard/Announcements'
 import MySchedule from '../../components/dashboard/employee/mySchedule/MySchedule'
 import ProfileCompletionCard from '../../components/dashboard/employee/ProfileCompletionCard'
+import HolidaysAndEvents from '../../components/dashboard/holidaysAndEvents/HolidaysAndEvents'
 
 const EmployeeDashboard = () => {
   return (
@@ -22,6 +23,7 @@ const EmployeeDashboard = () => {
 
         <div  className='flex flex-col gap-6'>
           <ProfileCompletionCard/>
+          <HolidaysAndEvents/>
         </div>
 
       </div>
