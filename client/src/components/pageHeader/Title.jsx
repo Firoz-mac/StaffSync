@@ -2,7 +2,7 @@ import React from 'react'
 
 const Title = ({ title, description}) => {
     return (
-        <div>
+        <div className='hidden lg:block'>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100">
                 {title}
             </h1>
