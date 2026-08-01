@@ -1,7 +1,6 @@
 import React from 'react'
 import { Menu } from 'lucide-react';
 import { useSidebarStore } from '../../store/sidebarStore';
-import SearchBar from './SearchBar';
 import NotificationButton from './NotificationButton';
 import { useCurrentPage } from '../../hooks/useCurrentPage';
 
@@ -33,13 +32,12 @@ const Navbar = () => {
 
       </div>
 
-      <div className='flex items-center gap-4'>
-
-        <SearchBar/>
+      <div className='flex items-center'>
         
         <NotificationButton/>
         
       </div>
+
     </nav>
   )
 }
