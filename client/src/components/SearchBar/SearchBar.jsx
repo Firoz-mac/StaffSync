@@ -13,6 +13,8 @@ const SearchBar = ({
     ...props
 
 }) => {
+
+
     return (
         <div 
             className={`relative ${className}`}

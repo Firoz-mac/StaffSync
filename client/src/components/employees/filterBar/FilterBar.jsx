@@ -3,66 +3,59 @@ import { Search } from 'lucide-react';
 import SearchBar from '../../SearchBar/SearchBar'
 import Select from '../../Select';
 
-const FilterBar = () => {
-
-    const [filters, setFilters] = useState({
-        department: "",
-        role: "",
-    });
+const FilterBar = ({filters, onFilterChange}) => {
 
     const departments = [
-        { value: "engineering", label: "Engineering" },
-        { value: "hr", label: "Human Resources" },
-        { value: "finance", label: "Finance" },
+        { value: "Engineering", label: "Engineering" },
+        { value: "Human Resources", label: "Human Resources" },
+        { value: "Finance", label: "Finance" },
     ];
 
     const roles = [
-        { value: "software_engineer", label: "Software Engineer" },
-        { value: "senior_software_engineer", label: "Senior Software Engineer" },
-        { value: "team_lead", label: "Team Lead" },
-        { value: "engineering_manager", label: "Engineering Manager" },
-        { value: "hr_executive", label: "HR Executive" },
-        { value: "hr_manager", label: "HR Manager" },
-        { value: "product_manager", label: "Product Manager" },
-        { value: "ui_ux_designer", label: "UI/UX Designer" },
-        { value: "qa_engineer", label: "QA Engineer" },
-        { value: "devops_engineer", label: "DevOps Engineer" },
-        { value: "business_analyst", label: "Business Analyst" },
-        { value: "finance_manager", label: "Finance Manager" },
-        { value: "marketing_specialist", label: "Marketing Specialist" },
-        { value: "sales_executive", label: "Sales Executive" },
-        { value: "intern", label: "Intern" },  
+        { value: "Software Engineer", label: "Software Engineer" },
+        { value: "Senior Software Engineer", label: "Senior Software Engineer" },
+        { value: "Team Lead", label: "Team Lead" },
+        { value: "Engineering Manager", label: "Engineering Manager" },
+        { value: "HR Executive", label: "HR Executive" },
+        { value: "HR Manager", label: "HR Manager" },
+        { value: "Product Manager", label: "Product Manager" },
+        { value: "UI/UX Designer", label: "UI/UX Designer" },
+        { value: "QA Engineer", label: "QA Engineer" },
+        { value: "DevOps Engineer", label: "DevOps Engineer" },
+        { value: "Business Analyst", label: "Business Analyst" },
+        { value: "Finance Manager", label: "Finance Manager" },
+        { value: "Marketing Specialist", label: "Marketing Specialist" },
+        { value: "Sales Executive", label: "Sales Executive" },
+        { value: "Intern", label: "Intern" },  
     ];
 
   return (
     <div className="flex flex-col gap-3 lg:flex-row">
 
         <SearchBar 
-            type="search" 
+            type="search"
+            value={filters.search} 
             placeholder="Search by name, ID..."
             icon={<Search size={18}/>}
             inputClassName="pl-10"
             className="flex-1"
+            onChange={(e) => onFilterChange("search", e.target.value)}
         />
 
-        <div className='grid grid-cols-2 gap-3'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
 
             <Select 
                 placeholder="Department" 
                 options={departments}
-                onChange={(e) => setFilters((prev)=> ({
-                    ...prev,
-                    department: e.target.value,
-                }))}
+                value={filters.department}
+                onChange={(e) => onFilterChange("department", e.target.value)}
             />
 
             <Select 
                 placeholder="Role" 
                 options={roles}
-                onChange={(e) => setFilters((prev)=> ({
-                    ...prev,
-                    role: e.target.value,
-                }))}
+                value={filters.role}
+                onChange={(e) => onFilterChange("role", e.target.value)}
             />
 
         </div>

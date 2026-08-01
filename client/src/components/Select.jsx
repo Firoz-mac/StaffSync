@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ChevronDown } from 'lucide-react';
 
 const Select = ({
@@ -10,6 +10,8 @@ const Select = ({
     ...props
 }) => {
 
+    const [isFocused, setIsFocused] = useState(false);
+
 
   return (
     <div className="relative">
@@ -17,6 +19,8 @@ const Select = ({
         <select 
             value={value} 
             onChange={onChange}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
             className={`w-full bg-white dark:bg-slate-900 px-4 py-2  rounded-lg 
                 border border-slate-300 dark:border-slate-700 hover:border-slate-400 
                 dark:hover:border-slate-600 text-slate-900 dark:text-slate-100 focus:outline-none
@@ -43,7 +47,9 @@ const Select = ({
 
         <ChevronDown 
             size={18} 
-            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-500"
+            className={`pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 
+                text-slate-500 ${isFocused ? 'rotate-270' : null}`
+            }
         />
 
     </div>

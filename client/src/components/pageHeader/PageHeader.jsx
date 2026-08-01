@@ -8,8 +8,8 @@ const PageHeader = ({
     buttonText,
     buttonIcon,
     buttonVariant="primary",
-    buttonProps,
-    onButtonClick,
+    buttonProps = {},
+    onClick,
     children,
 }) => {
   return (
@@ -21,17 +21,14 @@ const PageHeader = ({
         />
 
         {
-            children ? (
-                children
-            )
-            : (
+            children ?? (
 
                 buttonText && (
 
                     <Button
                         type='button'
                         variant={buttonVariant} 
-                        onClick={onButtonClick}
+                        onClick={onClick}
                         {...buttonProps}
                     >
                         <span className="flex items-center gap-2">
