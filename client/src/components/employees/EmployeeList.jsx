@@ -137,10 +137,6 @@ const EmployeeList = ({
 
     const paginatedEmployees = paginate(filteredEmployees, currentPage, pageSize);
 
-    useEffect(()=>{
-        console.log(paginatedEmployees)
-    },[paginatedEmployees])
-
 
   return (
     <Card>

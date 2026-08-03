@@ -27,3 +27,22 @@ export const activityItemData = {
         icon: Megaphone,
     },
 };
+
+export const employeeActivityItemData = {
+    checkin: {
+        bg: "bg-blue-100",
+        main: "bg-blue-500",
+    },
+    leave: {
+        bg: "bg-orange-100",
+        main: "bg-orange-500",
+    },
+    payroll: {
+        bg: "bg-green-100",
+        main: "bg-green-500",
+    },
+    update: {
+        bg: "bg-slate-100",
+        main: "bg-slate-500",
+    },
+}

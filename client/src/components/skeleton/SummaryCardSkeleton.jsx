@@ -3,7 +3,10 @@ import Skeleton from './Skeleton'
 
 const SummaryCardSkeleton = () => {
   return (
-    <div className='rounded-md lg:rounded-xl border border-slate-200 bg-white p-3 lg:p-6'>
+    <div 
+      className='rounded-md lg:rounded-xl border border-slate-200 bg-white 
+      dark:border-slate-700 dark:bg-slate-900 p-3 lg:p-6'
+    >
 
         <Skeleton className="h-10 w-10 rounded-lg"/>
 
