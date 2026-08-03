@@ -7,6 +7,7 @@ import Activity from './Activity';
 import ErrorState from '../../../errorState/ErrorState';
 import EmptyState from '../../../emptyState/EmptyState';
 import TimelineSkeleton from '../../../skeleton/TimelineSkeleton';
+import Button from '../../../Button';
 
 const RecentActivities = ({ data }) => {
 
@@ -33,6 +34,15 @@ const RecentActivities = ({ data }) => {
         }
 
       </div>
+
+      <Button 
+        variant='ghost' 
+        className='w-full border dark:border-slate-700 border-slate-200'
+      >
+        View All Activity
+      </Button>
+
+      
     </Card>
 
     // <ErrorState
