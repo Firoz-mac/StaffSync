@@ -30,7 +30,7 @@ const Attendance = ({
 
   return (
     <div 
-        className='flex items-center justify-between rounded-xl bg-white 
+        className='flex items-center justify-between bg-white 
         dark:bg-slate-900 px-6 py-4 '
     >
         <div className='flex gap-3'>

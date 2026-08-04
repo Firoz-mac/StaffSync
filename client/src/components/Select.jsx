@@ -21,7 +21,7 @@ const Select = ({
             onChange={onChange}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            className={`w-full bg-white dark:bg-slate-900 px-4 py-2  rounded-lg 
+            className={`w-full bg-white dark:bg-slate-900 px-4 py-2 pr-10 rounded-lg 
                 border border-slate-300 dark:border-slate-700 hover:border-slate-400 
                 dark:hover:border-slate-600 text-slate-900 dark:text-slate-100 focus:outline-none
                 focus:ring-1 focus:ring-blue-500 transition-colors duration-200 appearance-none cursor-pointer

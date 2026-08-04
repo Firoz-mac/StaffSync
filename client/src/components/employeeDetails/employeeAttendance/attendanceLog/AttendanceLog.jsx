@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from '../../../Card'
 import Attendance from './Attendance'
+import TimelineSkeleton from '../../../skeleton/TimelineSkeleton'
 
 const AttendanceLog = () => {
 
@@ -48,7 +49,7 @@ const AttendanceLog = () => {
   return (
     <Card className=''>
 
-      <div className='p-6 flex justify-between'>
+      <div className='p-6 flex justify-between border-b border-slate-200 dark:border-slate-700'>
 
         <h5 className='text-md font-medium text-slate-900 dark:text-slate-100'>Attendance History</h5>
 
@@ -61,7 +62,7 @@ const AttendanceLog = () => {
 
       </div>
       
-      <div className='space-y-3 divide-y divide-slate-200'>
+      <div className='space-y-3 divide-y divide-slate-200 dark:divide-slate-700'>
         
         {
           attendanceData.map((log)=>(
@@ -75,6 +76,7 @@ const AttendanceLog = () => {
       </div>
 
     </Card>
+    // <TimelineSkeleton/>
   )
 }
 
