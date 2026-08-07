@@ -4,6 +4,7 @@ const Button = ({
     children, 
     variant = "primary",
     type = "button",
+    onClick,
     disabled = false, 
     className = "", 
     ...props
@@ -27,6 +28,7 @@ const Button = ({
     <button 
         type={type}
         disabled={disabled}
+        onClick={onClick}
         className={`${baseClasses} ${btnVariants[variant] || btnVariants.primary} ${className}`}
         {...props}
     >
