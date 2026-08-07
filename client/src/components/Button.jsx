@@ -4,6 +4,7 @@ const Button = ({
     children, 
     variant = "primary",
     type = "button",
+    onClick,
     disabled = false, 
     className = "", 
     ...props
@@ -19,6 +20,7 @@ const Button = ({
         danger: "bg-red-600 text-white hover:bg-red-700",
         success: "bg-emerald-600 text-white hover:bg-emerald-700",
         white: "bg-slate-100 hover:bg-slate-200 text-blue-600 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-100",
+        ghost: "bg-transparent text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100",
     }
 
   return (
@@ -26,6 +28,7 @@ const Button = ({
     <button 
         type={type}
         disabled={disabled}
+        onClick={onClick}
         className={`${baseClasses} ${btnVariants[variant] || btnVariants.primary} ${className}`}
         {...props}
     >

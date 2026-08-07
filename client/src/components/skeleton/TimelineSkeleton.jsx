@@ -3,7 +3,10 @@ import Skeleton from './Skeleton'
 
 const TimelineSkeleton = () => {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-6">
+    <div 
+        className="rounded-xl border border-slate-200 bg-white 
+        dark:border-slate-700 dark:bg-slate-900 p-6"
+    >
         <Skeleton className="h-6 w-40"/>
 
         <div className="mt-6 space-y-6">

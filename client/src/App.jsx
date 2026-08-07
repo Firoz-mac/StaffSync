@@ -13,6 +13,7 @@ import NotFound from './pages/NotFound'
 import MainLayout from './layouts/MainLayout'
 import AdminDashboard from './pages/dashboard/AdminDashboard'
 import { useThemeStore } from './store/useThemeStore'
+import EmployeeDetails from './pages/EmployeeDetails'
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
 
           <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='/employees' element={<Employees/>}/>
+          <Route path='/employees/:empId' element={<EmployeeDetails/>}/>
           <Route path='/departments' element={<Departments/>}/>
           <Route path='/attendance' element={<Attendance/>}/>
           <Route path='/leave' element={<Leave/>}/>

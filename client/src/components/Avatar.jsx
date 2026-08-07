@@ -1,11 +1,17 @@
 import React from 'react'
 
-const Avatar = ({name, avatar}) => {
+const Avatar = ({
+    name, 
+    avatar,
+    size = "h-14 w-14",
+    className = '',
+}) => {
 
   return (
     <div 
-        className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full 
-        bg-slate-100 dark:bg-slate-800 shrink-0"
+        className={`flex h-14 w-14 items-center justify-center overflow-hidden rounded-full 
+        bg-slate-100 dark:bg-slate-800 shrink-0 
+        ${size} ${className}`}
     >
 
         {

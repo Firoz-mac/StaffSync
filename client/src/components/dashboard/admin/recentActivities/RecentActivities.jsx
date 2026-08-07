@@ -52,11 +52,11 @@ const RecentActivities = () => {
       <div className='mt-6'>
 
         {
-          recentActivitiesData.map((data, index)=> (
+          recentActivitiesData.map((data, i)=> (
             <ActivityItem 
               key={data.id} 
               data={data}
-              isLast={index === recentActivitiesData.length - 1}
+              isLast={i === recentActivitiesData.length - 1}
             />
           ))
         }
