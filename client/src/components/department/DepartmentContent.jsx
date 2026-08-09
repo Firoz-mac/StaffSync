@@ -1,16 +1,52 @@
 import React from 'react'
-import DepartmentCard from './DepartmentCard/DepartmentCard'
+import DepartmentCard from './DepartmentCard'
+import EmptyState from '../emptyState/EmptyState';
 
 const DepartmentContent = () => {
+
+    const departmentData = [
+        {
+            id:1,
+            department:'Engineering',
+            departmentHead: 'Mac'
+        },
+        {
+            id:2,
+            department:'Sales',
+            departmentHead: 'Mac'
+        },
+        {
+            id:3,
+            department:'Design',
+            departmentHead: 'Mac'
+        },
+        {
+            id:4,
+            department:'Support',
+            departmentHead: 'Mac'
+        },
+        {
+            id:5,
+            department:'Production',
+            departmentHead: 'Mac'
+        },
+
+    ];
+
   return (
     <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
-        <DepartmentCard/>
-        <DepartmentCard/>
-        <DepartmentCard/>
-        <DepartmentCard/>
-        <DepartmentCard/>
-        <DepartmentCard/>
+
+        {
+            departmentData.map((dpt)=>(
+                <DepartmentCard 
+                    key={dpt.id} 
+                    {...dpt}
+                />
+            ))
+        }
+        
     </div>
+    // <EmptyState/>
   )
 }
 

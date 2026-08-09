@@ -16,7 +16,7 @@ const TotalDepartments = () => {
 
             <div className='mt-4 flex items-end gap-3 text-white'>
                 <h2 className='text-4xl font-bold leading-none tracking-tight'>
-                    12 Active
+                    0 Active
                 </h2>
             </div>
 
