@@ -3,7 +3,11 @@ import { Search } from 'lucide-react';
 import SearchBar from '../../SearchBar/SearchBar'
 import Select from '../../Select';
 
-const FilterBar = ({filters, onFilterChange}) => {
+const FilterBar = ({
+    filters,
+    department = true, 
+    onFilterChange,
+}) => {
 
     const departments = [
         { value: "Engineering", label: "Engineering" },
@@ -42,14 +46,18 @@ const FilterBar = ({filters, onFilterChange}) => {
             onChange={(e) => onFilterChange("search", e.target.value)}
         />
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+        <div className={`grid grid-cols-1 ${department ? 'lg:grid-cols-2' : ''} gap-3`}>
 
-            <Select 
-                placeholder="Department" 
-                options={departments}
-                value={filters.department}
-                onChange={(e) => onFilterChange("department", e.target.value)}
-            />
+            {
+                department && (
+                    <Select 
+                        placeholder="Department" 
+                        options={departments}
+                        value={filters.department}
+                        onChange={(e) => onFilterChange("department", e.target.value)}
+                    />
+                )
+            }
 
             <Select 
                 placeholder="Role" 
