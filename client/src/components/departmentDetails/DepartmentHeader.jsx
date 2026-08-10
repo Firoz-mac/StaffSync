@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Avatar from '../Avatar'
 import Dropdown from '../dropdown/Dropdown'
 import Button from '../Button'
-import { EllipsisVertical } from 'lucide-react'
+import { EllipsisVertical, Pencil, Trash2 } from 'lucide-react'
 import DropdownItem from '../dropdown/DropdownItem'
+import EditDepartmentModal from './EditDepartmentModal'
 
 const DepartmentHeader = ({
     department = 'Engineering',
     departmentCode = 'ENG-04',
     departmentHead = 'Mac',
 }) => {
+
+    const [open, setOpen] = useState(false);
+
   return (
     <div className='flex justify-between'>
 
@@ -51,13 +55,25 @@ const DepartmentHeader = ({
                 </Button>
             }
         >
-            <DropdownItem>Edit</DropdownItem>
             <DropdownItem 
+                icon={<Pencil />}
+                onClick={()=>setOpen(true)}
+            > 
+                Edit
+            </DropdownItem>
+
+            <DropdownItem
+                icon={<Trash2 />} 
                 variant="danger"
             >
                 Remove
             </DropdownItem>
         </Dropdown>
+
+        <EditDepartmentModal 
+            open={open} 
+            onClose={()=>setOpen(false)}
+        />
 
     </div>
   )

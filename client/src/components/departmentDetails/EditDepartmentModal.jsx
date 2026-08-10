@@ -1,40 +1,34 @@
 import React from 'react'
-import Modal from '../../modal/Modal';
-import ModalHeader from '../../modal/ModalHeader';
-import ModalCard from '../../modal/ModalCard';
-import Input from '../../Input';
+import Modal from '../modal/Modal';
+import ModalCard from '../modal/ModalCard';
+import Input from '../Input';
 
-const EditPersonalModal = ({
+const EditDepartmentModal = ({
     open,
     onClose,
 }) => {
-
+    
     if(!open) return null;
 
     const formFields = [
-        'Full Name',
-        'Gender',
-        'Date of Birth',
-        'Nationality',
-        'Marital Status',
+        'Department Name',
+        'Description',
     ];
 
     const data = {
-        title:'Edit Personal Detals'
+        title: 'Edit Department',
     }
 
   return (
     <Modal 
         open={open} 
-        onClose={onClose} 
+        onClose={onClose}
     >
         <ModalCard 
             onClose={onClose}
             data={data}
         >
-
             <div className='space-y-3 mt-3'>
-
                 {
                     formFields.map((field)=>(
                         <Input 
@@ -44,12 +38,14 @@ const EditPersonalModal = ({
                     ))
                 }
 
-            </div>
+                <Input label='Department Head' placeholder='EMP:007'/>
 
+            </div>
+            
         </ModalCard>
-     
+
     </Modal>
   )
 }
 
-export default EditPersonalModal
+export default EditDepartmentModal

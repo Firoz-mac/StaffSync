@@ -1,5 +1,5 @@
 import React from 'react'
-import { EllipsisVertical } from 'lucide-react';
+import { Copy, EllipsisVertical, Trash2 } from 'lucide-react';
 import EmployeeBasicInfo from './EmployeeBasicInfo'
 import Avatar from '../../Avatar'
 import Button from '../../Button';
@@ -40,8 +40,14 @@ const EmployeeProfileHeader = () => {
                         </Button>
                     }
                 >
-                    <DropdownItem>Copy Id</DropdownItem>
                     <DropdownItem 
+                        icon={<Copy/>}
+                    >
+                        Copy Id
+                    </DropdownItem>
+
+                    <DropdownItem
+                        icon={<Trash2 />} 
                         variant="danger"
                     >
                         Delete Employee

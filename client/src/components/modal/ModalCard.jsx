@@ -12,7 +12,7 @@ const ModalCard = ({
     <Card className='p-6'>
 
         <ModalHeader 
-            title="Edit Personal Details"
+            title={data.title}
             onClose={onClose}
         />
 

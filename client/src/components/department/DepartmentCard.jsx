@@ -12,10 +12,7 @@ const DepartmentCard = ({
   const navigate = useNavigate();
 
   return (
-    <Card 
-      onClick={()=>navigate(`/departments/${department}`)} 
-      className='p-6 cursor-pointer'
-    >
+    <Card className='p-6 cursor-pointer'>
 
       <h3 className='text-lg font-semibold text-slate-900 dark:text-slate-100'>
         {department}
@@ -42,7 +39,12 @@ const DepartmentCard = ({
         </div>
       </div>
 
-      <Button variant='secondary' className='w-full mt-4'>View Details</Button>
+      <Button 
+        variant='secondary' className='w-full mt-4' 
+        onClick={()=>navigate(`/departments/${department}`)}
+      >
+        View Details
+      </Button>
 
     </Card>
   )
