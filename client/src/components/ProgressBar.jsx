@@ -1,7 +1,6 @@
 import React from 'react'
 
 const ProgressBar = ({
-
   type = "", 
   percentage = 0,
   textClass= "text-slate-900 dark:text-slate-100",
@@ -9,7 +8,6 @@ const ProgressBar = ({
   barBgColor = "bg-slate-100 dark:bg-blue-900",
   showPercentage = true,
   className = "",
-
 }) => {
 
   const progress = Math.max(0, Math.min(Math.round(percentage), 100));

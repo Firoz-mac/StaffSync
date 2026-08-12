@@ -1,5 +1,5 @@
 import React from 'react'
-import ProgressBar from '../../ProgressBar'
+import ProgressBar from '../../../ProgressBar'
 import { leaveStatisticsData } from '../../../../constants/dashboard/leaveStatisticsData'
 import { leaveStatisticsBarPercentage } from '../../../../utils/chartUtils'
 import ListSkeleton from '../../../skeleton/ListSkeleton'
