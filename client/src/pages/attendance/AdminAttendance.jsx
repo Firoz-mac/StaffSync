@@ -7,6 +7,7 @@ import {
 import AttendanceSummarySection from '../../components/attendance/AttendanceSummarySection'
 import AttendanceTrendChart from '../../components/attendance/admin/AttendanceTrendChart'
 import DepartmentAttendance from '../../components/attendance/admin/DepartmentAttendance'
+import MonthSelector from '../../components/MonthSelector';
 
 const AdminAttendance = () => {
 
@@ -38,7 +39,10 @@ const AdminAttendance = () => {
 
   return (
     <div className='p-6 space-y-4'>
-        <AttendanceSummarySection data={attendanceData}/>
+        <MonthSelector/>
+        <AttendanceSummarySection 
+            data={attendanceData}
+        />
         <AttendanceTrendChart/>
         <DepartmentAttendance/>
     </div>
