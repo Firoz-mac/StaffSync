@@ -5,16 +5,15 @@ const Select = ({
     options = [],
     value = "",
     onChange,
-    placeholder = "Select",
+    placeholder = '',
     className = "",
     ...props
 }) => {
 
     const [isFocused, setIsFocused] = useState(false);
 
-
   return (
-    <div className="relative">
+    <div className='relative'>
 
         <select 
             value={value} 
@@ -29,10 +28,14 @@ const Select = ({
             `}
             {...props}
         >
-            <option value="" disabled>
-                {placeholder}
-            </option>
-
+            {
+                placeholder && (
+                    <option value="" disabled>
+                        {placeholder}
+                    </option>
+                )
+            }
+            
             {
                 options.map((option)=>(
                     <option 
@@ -48,7 +51,7 @@ const Select = ({
         <ChevronDown 
             size={18} 
             className={`pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 
-                text-slate-500 ${isFocused ? 'rotate-270' : null}`
+                text-slate-500 ${isFocused ? 'rotate-270' : null} transition-transform duration-200 ease-in-out`
             }
         />
 

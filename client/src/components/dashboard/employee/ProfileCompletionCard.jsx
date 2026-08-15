@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '../../Card'
-import ProgressBar from '../ProgressBar'
+import ProgressBar from '../../ProgressBar'
 import Button from '../../Button'
 import ListSkeleton from '../../skeleton/ListSkeleton'
 import ProfileCompletionSkeleton from '../../skeleton/ProfileCompletionSkeleton'

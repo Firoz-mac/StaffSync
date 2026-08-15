@@ -1,6 +1,7 @@
 import React from 'react'
 import DepartmentCard from './DepartmentCard'
 import EmptyState from '../emptyState/EmptyState';
+import SummaryCardSkeleton from '../skeleton/SummaryCardSkeleton';
 
 const DepartmentContent = () => {
 
@@ -44,9 +45,18 @@ const DepartmentContent = () => {
                 />
             ))
         }
+
+        {/* {
+            [...Array(6)].map((_,i)=>(
+                <SummaryCardSkeleton/>
+            ))
+        } */}
+
+        
         
     </div>
     // <EmptyState/>
+    
   )
 }
 

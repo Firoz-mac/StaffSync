@@ -7,7 +7,7 @@ import Unauthorized from './Unauthorized';
 const dashboards = {
   admin: AdminDashboard,
   employee: EmployeeDashboard,
-}
+};
 
 const Dashboard = () => {
 
