@@ -14,7 +14,7 @@ import ChartSkeleton from './skeleton/ChartSkeleton';
 
 const Chart = ({
     title,
-    filters,
+    filters=[],
     data,
     xAxisKey,
     series = [],
@@ -25,13 +25,17 @@ const Chart = ({
     const isDark = theme === "dark";
 
     const [filterValue, setFilterValue] = useState(0);
-    const filterLength = filters.length;
+    const filter = filters.length > 0 ? filters[filterValue] : null;
 
     const handleFilterChange = () => {
+        if (!filters.length) return;
+
         setFilterValue((prev) => (
             prev === filters.length - 1 ? 0 : prev + 1
         ))
     };
+
+    const filteredData = filter ? data.slice(-Number(filter.value)) : data;
 
     return (
         <Card className='p-4 lg:p-6'>
@@ -41,15 +45,22 @@ const Chart = ({
             <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">{title}</h2>
 
-                <button
-                    type='button'
-                    onClick={handleFilterChange}
-                    className='rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 
-                    dark:bg-slate-800 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 
-                    transition-colors hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer'
-                >
-                    {filters[filterValue].label}
-                </button>
+                {
+                    filter && (
+                        <button
+                            type='button'
+                            onClick={handleFilterChange}
+                            disabled={loading}
+                            className='rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 
+                            dark:bg-slate-800 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 
+                            transition-colors hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer
+                            disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-slate-50
+                            dark:disabled:hover:bg-slate-800'
+                        >
+                            {filter.label}
+                        </button>
+                    )
+                }
 
             </div>
 
@@ -68,7 +79,7 @@ const Chart = ({
 
                         <ResponsiveContainer width="100%" height="100%">
 
-                            <ComposedChart data={data}>
+                            <ComposedChart data={filteredData}>
 
                                 <defs>
                                     <linearGradient
