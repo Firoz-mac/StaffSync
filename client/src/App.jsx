@@ -15,6 +15,7 @@ import AdminDashboard from './pages/dashboard/AdminDashboard'
 import { useThemeStore } from './store/useThemeStore'
 import EmployeeDetails from './pages/EmployeeDetails'
 import DepartmentDetails from './pages/DepartmentDetails'
+import LeaveRequest from './pages/LeaveRequest'
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
           <Route path='/departments/:department' element={<DepartmentDetails/>}/>
           <Route path='/attendance' element={<Attendance/>}/>
           <Route path='/leave' element={<Leave/>}/>
+          <Route path='/leave/newRequest/:empId' element={<LeaveRequest/>}/>
           <Route path='/payroll' element={<Payroll/>}/>
           <Route path='/reports' element={<Reports/>}/>
           <Route path='/settings' element={<Settings/>}/>

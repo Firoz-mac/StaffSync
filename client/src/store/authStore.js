@@ -5,7 +5,7 @@ export const useAuthStore = create((set)=> ({
         _id: "1",
         fullName: "Mac",
         email: "mac@example.com",
-        role: "admin",
+        role: "employee",
         profileImage: "",
     }
 }))
