@@ -16,6 +16,7 @@ import { useThemeStore } from './store/useThemeStore'
 import EmployeeDetails from './pages/EmployeeDetails'
 import DepartmentDetails from './pages/DepartmentDetails'
 import LeaveRequest from './pages/LeaveRequest'
+import LeaveDetails from './components/leave/leaveDetails/LeaveDetails'
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
           <Route path='/departments/:department' element={<DepartmentDetails/>}/>
           <Route path='/attendance' element={<Attendance/>}/>
           <Route path='/leave' element={<Leave/>}/>
+          <Route path='/leave/leaveDetails/:empId' element={<LeaveDetails/>}/>
           <Route path='/leave/newRequest/:empId' element={<LeaveRequest/>}/>
           <Route path='/payroll' element={<Payroll/>}/>
           <Route path='/reports' element={<Reports/>}/>

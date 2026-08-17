@@ -5,7 +5,7 @@ export const leaveStatisticsData = [
     color: "#B91C1C",
   },
   {
-    type: "Annual Leave",
+    type: "Vacation",
     count: 38,
     color: "#1D4ED8",
   },

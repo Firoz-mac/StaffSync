@@ -1,11 +1,12 @@
 import React from 'react'
 import Profile from './Profile'
 import Button from '../../Button'
+import { useNavigate } from 'react-router-dom';
 
 const LeaveRequestRow = ({
   name,
   avatar,
-  empId,
+  empId=1,
   position,
   leaveType,
   startingDate,
@@ -20,6 +21,8 @@ const LeaveRequestRow = ({
     rejected: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400',
   };
 
+  const navigate = useNavigate();
+
   return (
     <div 
       className='grid grid-cols-1 gap-4 p-6 dark:border-slate-700 
@@ -29,7 +32,7 @@ const LeaveRequestRow = ({
       <div className='min-w-0'>
         <Profile 
           name={name} 
-          avatar={avatar} 
+          avatar={avatar}
           position={position}
         />
       </div>
@@ -45,15 +48,19 @@ const LeaveRequestRow = ({
 
         <div>
 
-          <p className='text-xs font-medium uppercase tracking-wide text-slate-400 dark:text-slate-500'>Leave Period</p>
+          <p className='text-xs font-medium uppercase tracking-wide text-slate-400 dark:text-slate-500'>
+            Leave Period
+          </p>
           <span className='text-sm font-medium text-slate-900 dark:text-slate-100'>
-            {startingDate} -{endingDate}
+            {startingDate} - {endingDate}
           </span>
 
         </div>
 
         <div>
-          <p className='text-xs font-medium uppercase tracking-wide text-slate-400 dark:text-slate-500'>Duration</p>
+          <p className='text-xs font-medium uppercase tracking-wide text-slate-400 dark:text-slate-500'>
+            Duration
+          </p>
           <span className='text-sm font-medium text-slate-900 dark:text-slate-100'>
             {duration} Days
           </span>
@@ -61,37 +68,13 @@ const LeaveRequestRow = ({
         
       </div>
 
-      {
-        status === 'pending' ? (
-          <div className='flex justify-center gap-2'>
-
-            <Button 
-              variant='primary' 
-              className='flex-1 lg:flex-none'
-            >
-              Accept
-            </Button>
-            <Button 
-              variant='secondary' 
-              className='flex-1 lg:flex-none'
-            >
-              Reject
-            </Button>
-
-          </div>
-        )
-        :
-        (
-          <div className='flex justify-center'>
-            <span 
-              className={`w-full lg:w-fit rounded-md px-4 py-2 text-center text-xs font-semibold
-              capitalize ${statusVariants[status]}`}
-            >
-              {status}
-            </span>
-          </div>
-        )
-      }
+      <Button 
+        variant='outline' 
+        className='shrink-0'
+        onClick={()=>navigate(`/leave/leaveDetails/${empId}`)}
+      >
+        View
+      </Button>
 
     </div>
   )
