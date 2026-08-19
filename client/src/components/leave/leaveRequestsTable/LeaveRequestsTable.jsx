@@ -320,7 +320,6 @@ const LeaveRequestsTable = ({
                 />
             )
         }
-
         
     </Card>
   )
