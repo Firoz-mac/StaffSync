@@ -14,9 +14,6 @@ import Chart from '../../Chart';
 
 const AttendanceTrendChart = () => {
 
-    const theme = useThemeStore();
-    const isDark = theme === "dark";
-
     const attendanceTrendData = [
         { day: "M", present: 68,},
         { day: "T", present: 60,},
@@ -32,10 +29,6 @@ const AttendanceTrendChart = () => {
         { value: "1", label: "Yesterday" },
         { value: "7", label: "Last 7 Days" },
     ];
-
-    const handleFilterChange = (value)=>{
-        setSelectedFilter()
-    }
 
     return (
         <Chart 
