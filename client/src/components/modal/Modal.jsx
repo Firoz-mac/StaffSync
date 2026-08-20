@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import ModalHeader from './ModalHeader'
 import { createPortal } from "react-dom";
 
 const Modal = ({
@@ -10,7 +9,8 @@ const Modal = ({
 }) => {
 
     useEffect(()=>{
-        if (!open) return null;
+        
+        if (!open) return;
 
         const handleKeyDown = (e) =>{
             if(e.key === 'Escape'){
@@ -31,6 +31,10 @@ const Modal = ({
             window.removeEventListener("keydown", handleKeyDown);
         };
     },[open, onClose]);
+
+    if (!open) {
+        return null;
+    }
 
   return createPortal(
 
