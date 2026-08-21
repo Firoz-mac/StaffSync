@@ -1,9 +1,10 @@
 import React from 'react'
+import ThemeButton from '../components/settings/ThemeButton'
 
 const Settings = () => {
   return (
-    <div>
-      Settings
+    <div className='p-6'>
+      <ThemeButton/>
     </div>
   )
 }
