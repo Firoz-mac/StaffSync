@@ -5,7 +5,7 @@ import {
     CalendarCheck, 
     CalendarX2, 
     CreditCard, 
-    FileText, 
+    UserShield, 
     Settings 
 } from 'lucide-react';
 
@@ -47,9 +47,9 @@ export const sidebarLinks = [
         roles: ["admin", "employee"],
     },
     {
-        title: "Reports",
-        path: "/reports",
-        icon: FileText,
+        title: "Roles",
+        path: "/roles",
+        icon: UserShield,
         roles: ["admin"],
     },
     {
