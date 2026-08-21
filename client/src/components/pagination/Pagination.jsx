@@ -12,8 +12,8 @@ const Pagination = ({
 }) => {
   return (
     <div 
-      className='flex items-center justify-center lg:justify-between bg-blue-50 p-6 border-t 
-      border-slate-200 dark:border-slate-700'
+      className='flex items-center justify-center lg:justify-between bg-blue-50 dark:bg-blue-900/20 
+      p-6 border-t border-slate-200 dark:border-slate-700'
     >
 
       <div className='hidden lg:block'>
