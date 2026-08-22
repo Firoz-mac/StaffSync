@@ -4,8 +4,11 @@ import Button from '../Button'
 import { formatCurrentDate } from '../../utils/formatDate'
 import ErrorState from '../errorState/ErrorState'
 import { useAuthStore } from '../../store/authStore'
+import { useNavigate } from 'react-router-dom'
 
 const WelcomeBanner = () => {
+
+    const navigate = useNavigate();
 
     const user = useAuthStore((state) => state.user);
 
@@ -32,7 +35,11 @@ const WelcomeBanner = () => {
                         Export
                     </Button>
 
-                    <Button variant='primary' className="flex-1 sm:flex-none justify-center">
+                    <Button 
+                        variant='primary' 
+                        className="flex-1 sm:flex-none justify-center"
+                        onClick={()=>navigate('/employees/new')}
+                    >
                         <Plus size={18}/>
                         New Employee
                     </Button>
@@ -40,8 +47,6 @@ const WelcomeBanner = () => {
                 </div>
             )
         }
-
-        
 
     </div>
     // <ErrorState 

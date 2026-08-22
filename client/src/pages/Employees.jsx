@@ -3,10 +3,13 @@ import { Plus } from 'lucide-react';
 import PageHeader from '../components/pageHeader/PageHeader'
 import FilterBar from '../components/employees/filterBar/FilterBar';
 import EmployeeList from '../components/employees/EmployeeList';
+import { useNavigate } from 'react-router-dom';
 
 const pageSize = 10;
 
 const Employees = () => {
+
+  const navigate = useNavigate();
 
   const [currentPage, setCurrentPage] = useState(1);
   
@@ -33,6 +36,7 @@ const Employees = () => {
         description="Manage and view all members of the organization."
         buttonText="New Employee"
         buttonIcon={<Plus size={18} />}
+        onClick={()=>navigate('/employees/new')}
       />
 
       <FilterBar 
