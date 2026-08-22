@@ -39,7 +39,8 @@ const Input = ({
                 focus:outline-none focus:ring-2 focus:ring-blue-500/20 disabled:cursor-not-allowed disabled:bg-slate-100
                 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500
                 ${leftIcon ? 'pl-10' : ''} ${rightIcon ? 'pr-10' : ''}
-                ${error ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-slate-300'} ${inputClassName}`}
+                ${error ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-slate-300'} 
+                ${inputClassName}`}
 
                 {...props}
                 

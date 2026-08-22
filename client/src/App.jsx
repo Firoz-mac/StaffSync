@@ -17,6 +17,7 @@ import LeaveRequest from './pages/LeaveRequest'
 import LeaveDetails from './components/leave/leaveDetails/LeaveDetails'
 import RoleManagement from './pages/RoleManagement'
 import Manage from './components/roleManagement/manage/Manage'
+import NewEmployee from './pages/NewEmployee'
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
 
           <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='/employees' element={<Employees/>}/>
+          <Route path='/employees/new' element={<NewEmployee/>}/>
           <Route path='/employees/:empId' element={<EmployeeDetails/>}/>
           <Route path='/departments' element={<Departments/>}/>
           <Route path='/departments/:department' element={<DepartmentDetails/>}/>
