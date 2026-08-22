@@ -21,12 +21,17 @@ const PaymentHistory = () => {
     <Card>
 
         <div className='p-6 flex items-center justify-between'>
-            <h5 className='text-xl font-semibold text-slate-900 dark:text-slate-100'>PaymentHistory</h5>
+            <h5 className='text-xl font-semibold text-slate-900 dark:text-slate-100'>Payment History</h5>
 
-            <Select
-                options={years} 
-                placeholder={years[0].label}
-            />
+            <div>
+
+                <Select
+                    options={years} 
+                    placeholder={years[0].label}
+                />
+
+            </div>
+            
         </div>
 
         <PaymentHistoryTable/>
