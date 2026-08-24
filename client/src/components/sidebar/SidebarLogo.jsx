@@ -16,7 +16,7 @@ const SidebarLogo = () => {
                 <img
                     className="w-8 h-8"
                     src="/favicon.svg"
-                    alt="StaffSync Logo"
+                    alt="StaffSync"
                 />
                 <h1 
                     className="text-xl font-bold text-slate-800 dark:text-slate-100 whitespace-nowrap"

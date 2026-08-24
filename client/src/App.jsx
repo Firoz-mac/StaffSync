@@ -18,6 +18,7 @@ import LeaveDetails from './components/leave/leaveDetails/LeaveDetails'
 import RoleManagement from './pages/RoleManagement'
 import Manage from './components/roleManagement/manage/Manage'
 import NewEmployee from './pages/NewEmployee'
+import Auth from './pages/Auth'
 
 function App() {
 
@@ -32,6 +33,8 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path='/auth' element={<Auth/>}/>
+        
 
         <Route element={<MainLayout/>}>
 
