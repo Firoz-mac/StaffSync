@@ -44,6 +44,7 @@ const AuthFormCard = () => {
             <Input 
                 type='email' 
                 label='Email'
+                value={authForm.email}
                 name='email'
                 placeholder='example@gmail.com'
                 isAuthPage={true}
@@ -52,6 +53,7 @@ const AuthFormCard = () => {
             <Input 
                 type={showPassword ? 'text' : 'password'} 
                 label='Password'
+                value={authForm.password}
                 name='password'
                 placeholder='********'
                 isAuthPage={true}
@@ -76,6 +78,7 @@ const AuthFormCard = () => {
                     <Input 
                         type={showConfirmPassword ? 'text' : 'password'} 
                         label='Confirm Password'
+                        value={authForm.confirmPassword}
                         name='confirmPassword' 
                         placeholder='********'
                         isAuthPage={true}
