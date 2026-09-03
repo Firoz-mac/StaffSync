@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Button = ({ 
     children, 
@@ -29,7 +29,11 @@ const Button = ({
         type={type}
         disabled={disabled}
         onClick={onClick}
-        className={`${baseClasses} ${btnVariants[variant] || btnVariants.primary} ${className}`}
+        className={`
+            ${baseClasses} 
+            ${btnVariants[variant] || btnVariants.primary} 
+            ${className}
+        `}
         {...props}
     >
 

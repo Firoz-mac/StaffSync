@@ -72,7 +72,7 @@ export const createEmployee = async (req, res) => {
 
         res.status(201).json({
             success: true,
-            message: 'New employee added successfully.',
+            message: 'Employee added successfully.',
             employee,
         });
 
