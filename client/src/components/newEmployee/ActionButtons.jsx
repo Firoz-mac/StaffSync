@@ -2,7 +2,10 @@ import React from 'react'
 import Button from '../Button'
 import { ArrowRight } from 'lucide-react';
 
-const ActionButtons = () => {
+const ActionButtons = ({
+    handleSubmit,
+    loading ,
+}) => {
   return (
     <div className='flex justify-between py-6'>
 
@@ -12,7 +15,10 @@ const ActionButtons = () => {
             Close
         </Button>
 
-        <Button>
+        <Button 
+            onClick={handleSubmit}
+            disabled={loading}
+        >
             <span>Add Employee</span>
             <ArrowRight size={18}/>
         </Button>

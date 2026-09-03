@@ -7,6 +7,7 @@ import Input from '../Input';
 const SalaryAndPayrollInformation = ({
     formData,
     onChange,
+    errors,
 }) => {
   return (
     <Card className='p-6'>
@@ -21,9 +22,11 @@ const SalaryAndPayrollInformation = ({
             <Input 
                 label='Basic Salary'
                 name='basicSalary'
+                id='basicSalary'
                 value={formData.basicSalary}
                 placeholder='Enter basic salary'
                 onChange={onChange}
+                error={errors.basicSalary}
             />
             <Input 
                 label='HRA'

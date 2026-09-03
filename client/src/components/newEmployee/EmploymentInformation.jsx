@@ -8,6 +8,7 @@ import Input from '../Input';
 const EmploymentInformation = ({
     formData,
     onChange,
+    errors,
 }) => {
 
     const departments = [
@@ -28,6 +29,7 @@ const EmploymentInformation = ({
             <Select 
                 label='Department'
                 name='department'
+                id='department'
                 value={formData.department} 
                 options={departments}
                 placeholder='Select department'
@@ -37,9 +39,11 @@ const EmploymentInformation = ({
             <Input 
                 label='Designation'
                 name='designation'
+                id='designation'
                 value={formData.designation}  
                 placeholder='Enter designation'
                 onChange={onChange}
+                error={errors.designation}
             />
         </div>
     </Card>
