@@ -20,6 +20,7 @@ const fieldOrder = [
   'basicSalary',
 ];
 
+
 const NewEmployee = () => {
 
   const {addEmployee, loading} = useEmployee();
@@ -207,7 +208,7 @@ const NewEmployee = () => {
     if (!isValid) return;
 
     const employeePayload = new FormData()
-    
+
     employeePayload.append('firstName', newEmpData.firstName)
     employeePayload.append('lastName', newEmpData.lastName)
     employeePayload.append('email', newEmpData.email)
@@ -237,6 +238,36 @@ const NewEmployee = () => {
       toast.success(response.message,{
         description: `${newEmpData.firstName} ${newEmpData.lastName} has been added.`
       })
+
+      
+      if (response.success){
+        setNewEmpData({
+          image:null,
+          firstName:'',
+          lastName:'',
+          email:'',
+          phone:'',
+          dateOfBirth:'',
+          gender:'',
+          maritalStatus:'',
+          department:'',
+          designation:'',
+          salary : {
+            basicSalary:'',
+            hra:'',
+            specialAllowance:'',
+            retirementFund:'',
+          }
+        })
+
+        setProfilePreview('')
+
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        })
+        
+      }
 
     } catch (error) {
       toast.error('Failed to add employee.', {
