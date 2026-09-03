@@ -1,3 +1,4 @@
+import cloudinary from "../config/cloudinary.js";
 import Employee from "../models/Employee.js";
 
 export const createEmployee = async (req, res) => {
@@ -42,6 +43,8 @@ export const createEmployee = async (req, res) => {
             })
         }
 
+        const parsedSalary = JSON.parse(salary)
+
         const normalizedEmail = email.toLowerCase().trim()
 
         //if employee is already registered
@@ -56,6 +59,29 @@ export const createEmployee = async (req, res) => {
             })
         }
 
+        let imageUrl = null
+
+        if(req.file){
+            const result = await new Promise((resolve, reject) => {
+                const uploadStream = cloudinary.uploader.upload_stream(
+                    {
+                        folder: 'staffsync/employees',
+                        resource_type: 'image',
+                    },
+                    (error, result) => {
+                        if(error){
+                            reject(error)
+                        } else {
+                            resolve(result)
+                        }
+                    }
+                )
+
+                uploadStream.end(req.file.buffer)
+            })
+            imageUrl = result.secure_url
+        }
+
         //create employee
         const employee = await Employee.create({
             firstName,
@@ -67,7 +93,8 @@ export const createEmployee = async (req, res) => {
             maritalStatus,
             department,
             designation,
-            salary,
+            salary: parsedSalary,
+            image: imageUrl,
         });
 
         res.status(201).json({

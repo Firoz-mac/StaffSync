@@ -206,22 +206,29 @@ const NewEmployee = () => {
 
     if (!isValid) return;
 
-    const employeePayload = {
-      firstName: newEmpData.firstName,
-      lastName: newEmpData.lastName,
-      email: newEmpData.email,
-      phone: newEmpData.phone,
-      dateOfBirth: newEmpData.dateOfBirth,
-      gender: newEmpData.gender,
-      maritalStatus: newEmpData.maritalStatus,
-      department: newEmpData.department,
-      designation: newEmpData.designation,
-      salary:{
+    const employeePayload = new FormData()
+    
+    employeePayload.append('firstName', newEmpData.firstName)
+    employeePayload.append('lastName', newEmpData.lastName)
+    employeePayload.append('email', newEmpData.email)
+    employeePayload.append('phone', newEmpData.phone)
+    employeePayload.append('dateOfBirth', newEmpData.dateOfBirth)
+    employeePayload.append('gender', newEmpData.gender)
+    employeePayload.append('maritalStatus', newEmpData.maritalStatus)
+    employeePayload.append('department', newEmpData.department)
+    employeePayload.append('designation', newEmpData.designation)
+    employeePayload.append(
+      'salary',
+      JSON.stringify({
         basicSalary: Number(newEmpData.salary.basicSalary),
         hra: Number(newEmpData.salary.hra),
         specialAllowance: Number(newEmpData.salary.specialAllowance),
         retirementFund: Number(newEmpData.salary.retirementFund),
-      }
+      })
+    )
+
+    if (newEmpData.image) {
+      employeePayload.append('image', newEmpData.image)
     }
 
     try {
