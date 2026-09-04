@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { createEmployee } from "../services/employeeService";
 
-const useEmployee = ()=> {
+const useEmployee = () => {
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);

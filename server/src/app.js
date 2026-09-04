@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 
 import employeeRouter from './routes/employeeRouter.js'
+import authRouter from './routes/authRouter.js'
 
 const app = express();
 
@@ -22,5 +23,8 @@ app.get('/', (req, res) => {
 
 //employee
 app.use('/api/employee', employeeRouter)
+
+//auth
+app.use('/api/auth', authRouter)
 
 export default app

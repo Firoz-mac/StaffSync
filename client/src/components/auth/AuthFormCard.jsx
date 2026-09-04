@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import FormHeader from './FormHeader'
 import Input from '../Input'
 import { Eye, EyeOff } from 'lucide-react'
+import { toast } from 'sonner'
+import useAuth from '../../hooks/useAuth'
 
 const AuthFormCard = () => {
 
@@ -9,6 +11,10 @@ const AuthFormCard = () => {
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+    const [formError, setFormError] = useState({})
+
+    const { signupUser, loading, error} = useAuth();
 
     const [authForm, setAuthForm] = useState({
         email:'',
@@ -23,13 +29,87 @@ const AuthFormCard = () => {
             ...prev,
             [name]:value
         }));
+
+        setFormError((prev) => {
+            const updatedError = { ...prev }
+
+            delete updatedError[name]
+
+            return updatedError;
+
+        })
     }
 
-    const handleSubmit = (e)=>{
-        e.preventDefault()
+    const validateForm = () => {
 
-        console.log(authForm);
+        setFormError({})
+
+        if (!isLogin){
+
+            const isPasswordIsValid = authForm.password.length >= 8
+
+            if (!isPasswordIsValid){
+                setFormError({
+                    password: 'Password must be at least 8 characters.'
+                })
+
+                return false;
+            }
+
+            const isPasswordNotMatching = authForm.password !== authForm.confirmPassword
+
+            if (isPasswordNotMatching){
+                setFormError({
+                    confirmPassword: 'Passwords are not matching'
+                })
+
+                return false;
+            }
+
+        }
+
+        return true
+    }
+
+    const handleSubmit = async (e)=>{
+        e.preventDefault()
+        
+
+        const isValid = validateForm();
+
+        if (!isValid) return;
+
+        const userDataPayload = {
+            email: authForm.email,
+            password: authForm.password
+        }
+
+        if (!isLogin){
+            
+            try {
+                const response = await signupUser(userDataPayload);
+            
+                toast.success(response.message)
+
+                setAuthForm({
+                    email:'',
+                    password:'',
+                    confirmPassword:'',
+                })
+                
+            } catch (error) {
+                toast.error('Signup faild.', {
+                    description: error.message,
+                })
+            }
+
+        }
+
+        if (isLogin){
+            console.log(authForm)
+        }
     };
+
 
   return (
     <div className='w-full lg:max-w-sm bg-violet-400/20 backdrop-blur-md rounded-4xl p-10'>
@@ -46,18 +126,22 @@ const AuthFormCard = () => {
                 label='Email'
                 value={authForm.email}
                 name='email'
+                id='email'
                 placeholder='example@gmail.com'
                 isAuthPage={true}
                 onChange={handleChange}
+                error={formError.email}
             />
             <Input 
                 type={showPassword ? 'text' : 'password'} 
                 label='Password'
                 value={authForm.password}
                 name='password'
+                id='password'
                 placeholder='********'
                 isAuthPage={true}
                 onChange={handleChange}
+                error={formError.password}
                 rightIcon={
                     <button 
                         type='button' 
@@ -79,10 +163,12 @@ const AuthFormCard = () => {
                         type={showConfirmPassword ? 'text' : 'password'} 
                         label='Confirm Password'
                         value={authForm.confirmPassword}
-                        name='confirmPassword' 
+                        name='confirmPassword'
+                        id='confirmPassword' 
                         placeholder='********'
                         isAuthPage={true}
                         onChange={handleChange}
+                        error={formError.confirmPassword}
                         rightIcon={
                             <button 
                                 type='button' 

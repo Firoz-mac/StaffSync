@@ -12,6 +12,12 @@ const employeeSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
+    empId: {
+        type: String,
+        unique: true,
+        required: true,
+        immutable: true,
+    },
     email:{
         type: String,
         required: true,

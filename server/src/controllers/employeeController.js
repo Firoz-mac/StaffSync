@@ -1,5 +1,6 @@
 import cloudinary from "../config/cloudinary.js";
 import Employee from "../models/Employee.js";
+import generateEmpId from "../utils/generateEmpId.js";
 
 export const createEmployee = async (req, res) => {
     try{
@@ -82,10 +83,13 @@ export const createEmployee = async (req, res) => {
             imageUrl = result.secure_url
         }
 
+        const empId = await generateEmpId();
+
         //create employee
         const employee = await Employee.create({
             firstName,
             lastName,
+            empId,
             email,
             phone,
             dateOfBirth,
