@@ -9,7 +9,7 @@ const Avatar = ({
 
   return (
     <div 
-        className={`flex h-14 w-14 items-center justify-center overflow-hidden rounded-full 
+        className={`flex items-center justify-center overflow-hidden rounded-full 
         bg-slate-100 dark:bg-slate-800 shrink-0 
         ${size} ${className}`}
     >
