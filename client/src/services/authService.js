@@ -11,3 +11,15 @@ export const login = async (loginData) => {
 
     return response.data;
 }
+
+export const logout = async () => {
+    const response = await api.post('/auth/logout')
+
+    return response.data;
+}
+
+export const getCurrentUser = async () => {
+    const response = await api.get('/auth/getMe');
+
+    return response.data;
+}

@@ -17,7 +17,7 @@ const authMiddleware = async (req, res, next) => {
             process.env.JWT_SECRET
         )
 
-        const user = await User.findById(tokenDecode.userId).select('-password')
+        const user = await User.findById(tokenDecode.userId).select('-password').populate('employee')
 
         if (!user) {
             return res.status(401).json({

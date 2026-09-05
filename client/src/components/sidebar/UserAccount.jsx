@@ -1,7 +1,16 @@
-import { LogOut } from 'lucide-react'
 import React from 'react'
+import { useAuthStore } from '../../store/authStore'
+import LogoutButton from './LogoutButton';
+import { useEffect } from 'react';
 
 const UserAccount = () => {
+
+  const user = useAuthStore(state => state.user);
+
+  useEffect(()=>{
+    console.log(user)
+  },[user])
+
   return (
     <div className='flex items-center justify-between py-3'>
 
@@ -13,21 +22,17 @@ const UserAccount = () => {
         </div>
 
         <div className='flex flex-col text-left'>
-          <span className='text-sm font-semibold text-slate-800 dark:text-slate-100'>Mac</span>
-          <span className="text-xs text-slate-500 dark:text-slate-400">Administrator</span>
+          <span className='text-sm font-semibold text-slate-800 dark:text-slate-100'>
+            {user?.employee.firstName || 'User'}
+          </span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">
+            {user?.employee.designation}
+          </span>
         </div>
 
       </div>
 
-      <button 
-        type='button'
-        aria-label="Log out" 
-        className='hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-red-600  
-        dark:hover:text-red-400 rounded-full p-2 transition-colors cursor-pointer'
-      >
-        <LogOut size={18}/>
-
-      </button>
+      <LogoutButton/>
       
     </div>
   )

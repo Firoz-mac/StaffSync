@@ -5,10 +5,12 @@ import { Eye, EyeOff } from 'lucide-react'
 import { toast } from 'sonner'
 import useAuth from '../../hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
+import { useAuthStore } from '../../store/authStore'
 
 const AuthFormCard = () => {
 
     const navigate = useNavigate();
+    const setUser = useAuthStore(state => state.setUser);
 
     const [isLogin, setIslogin] = useState(true);
 
@@ -111,6 +113,7 @@ const AuthFormCard = () => {
         if (isLogin){
             try {
                 const response = await loginUser(userDataPayload);
+                setUser(response.user)
                 toast.success(response.message)
 
                 setAuthForm({
@@ -119,7 +122,7 @@ const AuthFormCard = () => {
                     confirmPassword:'',
                 })
 
-                navigate('/dashboard')
+                navigate('/dashboard');
 
 
             } catch (error) {
