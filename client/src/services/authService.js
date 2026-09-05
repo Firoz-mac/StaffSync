@@ -5,3 +5,9 @@ export const createAccount = async (userData) => {
 
     return response.data;
 }
+
+export const login = async (loginData) => {
+    const response = await api.post('/auth/login', loginData);
+
+    return response.data;
+}

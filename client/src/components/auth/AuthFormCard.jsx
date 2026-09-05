@@ -14,7 +14,7 @@ const AuthFormCard = () => {
 
     const [formError, setFormError] = useState({})
 
-    const { signupUser, loading, error} = useAuth();
+    const { signupUser, loginUser, loading, error} = useAuth();
 
     const [authForm, setAuthForm] = useState({
         email:'',
@@ -106,7 +106,21 @@ const AuthFormCard = () => {
         }
 
         if (isLogin){
-            console.log(authForm)
+            try {
+                const response = await loginUser(userDataPayload);
+                toast.success(response.message)
+
+                setAuthForm({
+                    email:'',
+                    password:'',
+                    confirmPassword:'',
+                })
+
+            } catch (error) {
+                toast.error('Login faild.', {
+                    description: error.message,
+                })
+            }
         }
     };
 

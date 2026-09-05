@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { createAccount } from '../services/authService'
+import { createAccount, login } from '../services/authService'
 
 const useAuth = () => {
 
@@ -25,8 +25,28 @@ const useAuth = () => {
         }
     }
 
+    const loginUser = async (loginData) => {
+        try {
+            setLoading(true)
+            setError(null)
+
+            const data = await login(loginData)
+
+            return data;
+
+        } catch (error) {
+            const message = error.response?.data?.message || 'Login failed.'
+            setError(message)
+
+            throw new Error(message)
+        } finally {
+            setLoading(false)
+        }
+    }
+
     return {
         signupUser,
+        loginUser,
         loading,
         error,
     }
