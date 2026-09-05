@@ -97,7 +97,7 @@ export const login = async (req, res) => {
         //finding user
         const user = await User.findOne({
             email: normalizedEmail,
-        })
+        }).populate('employee')
 
         if (!user){
             return res.status(401).json({
@@ -159,5 +159,44 @@ export const login = async (req, res) => {
             message: 'Failed to login.'
         })
         
+    }
+}
+
+export const logout = async (req, res) =>{
+    try {
+        res.clearCookie('token', {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
+        })
+
+        return res.status(200).json({
+            success: true,
+            message: 'Logged out successfully.',
+        })
+    } catch (error) {
+        console.error('Logout error:', error)
+
+        return res.status(500).json({
+            success: false,
+            message: 'Failed to logout.',
+        })
+    }
+}
+
+export const getCurrentUser = async (req, res) => {
+    try {
+        return res.status(200).json({
+            success: true,
+            user: req.user
+        })
+    } catch (error) {
+        console.error('Get current user error:', error)
+
+        return res.status(500).json({
+            success: false,
+            message: 'Failed to get current user.',
+        })
+
     }
 }

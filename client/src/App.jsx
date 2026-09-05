@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
 import './App.css'
 import Dashboard from './pages/Dashboard'
@@ -19,6 +19,7 @@ import RoleManagement from './pages/RoleManagement'
 import Manage from './components/roleManagement/manage/Manage'
 import NewEmployee from './pages/NewEmployee'
 import Auth from './pages/Auth'
+import useAuthSession from './hooks/useAuthSession'
 
 function App() {
 
@@ -27,6 +28,8 @@ function App() {
   useEffect(()=> {
     document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
+
+  useAuthSession();
 
   return (
     <>

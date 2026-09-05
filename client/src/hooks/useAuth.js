@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { createAccount, login } from '../services/authService'
+import { createAccount, login, logout } from '../services/authService'
 
 const useAuth = () => {
 
@@ -44,9 +44,30 @@ const useAuth = () => {
         }
     }
 
+    const logoutUser = async () => {
+        
+        try {
+            setLoading(true)
+            setError(null)
+
+            const data = await logout()
+
+            return data;
+
+        } catch (error) {
+            const message = error.response?.data?.message || 'Failed to logout.'
+            setError(message)
+
+            throw new Error(message)
+        } finally{
+            setLoading(false)
+        }
+    }
+
     return {
         signupUser,
         loginUser,
+        logoutUser,
         loading,
         error,
     }

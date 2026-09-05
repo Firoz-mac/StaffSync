@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 
 import employeeRouter from './routes/employeeRouter.js'
 import authRouter from './routes/authRouter.js'
@@ -12,6 +13,7 @@ app.use(cors({
 }))
 
 app.use(express.json());
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
     res.json({

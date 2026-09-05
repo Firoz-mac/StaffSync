@@ -21,7 +21,7 @@ const WelcomeBanner = () => {
 
         <div>
             <h1 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
-                Welcome {user?.fullName || "User"}
+                Welcome {user?.employee?.firstName || "User"}
             </h1>
             <p className="text-slate-500 dark:text-slate-400">{today}</p>
         </div>
