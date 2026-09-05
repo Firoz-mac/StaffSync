@@ -161,3 +161,20 @@ export const login = async (req, res) => {
         
     }
 }
+
+export const getCurrentUser = async (req, res) => {
+    try {
+        return res.status(200).json({
+            success: true,
+            user: req.user
+        })
+    } catch (error) {
+        console.error('Get current user error:', error)
+
+        return res.status(500).json({
+            success: false,
+            message: 'Failed to get current user.',
+        })
+
+    }
+}
