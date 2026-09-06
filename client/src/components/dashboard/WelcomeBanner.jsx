@@ -5,6 +5,7 @@ import { formatCurrentDate } from '../../utils/formatDate'
 import ErrorState from '../errorState/ErrorState'
 import { useAuthStore } from '../../store/authStore'
 import { useNavigate } from 'react-router-dom'
+import ClockInButton from './ClockInButton'
 
 const WelcomeBanner = () => {
 
@@ -27,7 +28,7 @@ const WelcomeBanner = () => {
         </div>
         
         {
-            isAdmin && (
+            isAdmin ? (
                 <div className='flex flex-wrap gap-2'>
 
                     <Button variant='outline'>
@@ -46,12 +47,13 @@ const WelcomeBanner = () => {
 
                 </div>
             )
+            :
+            (
+                <ClockInButton/>
+            )
         }
 
     </div>
-    // <ErrorState 
-    //     description='We couldnt load your dashboard information. Please refresh the page.'
-    // />
   )
 }
 
