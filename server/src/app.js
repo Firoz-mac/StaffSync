@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser'
 
 import employeeRouter from './routes/employeeRouter.js'
 import authRouter from './routes/authRouter.js'
+import attendanceRouter from './routes/attendanceRouter.js'
 
 const app = express();
 
@@ -24,9 +25,12 @@ app.get('/', (req, res) => {
 
 
 //employee
-app.use('/api/employee', employeeRouter)
+app.use('/api/employee', employeeRouter);
 
 //auth
-app.use('/api/auth', authRouter)
+app.use('/api/auth', authRouter);
+
+//attendance
+app.use('/api/attendance', attendanceRouter);
 
 export default app
