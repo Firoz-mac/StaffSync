@@ -2,7 +2,7 @@ import Attendance from "../models/Attendance.js";
 
 export const markAttendance = async (req, res) =>{
     try {
-        const employeeId = req.user.employee._id;
+        const employeeId = req.user.employee?._id;
 
         if (!employeeId){
             return res.status(400).json({
@@ -60,6 +60,38 @@ export const markAttendance = async (req, res) =>{
         return res.status(500).json({
             success: false,
             message: 'Failed to update attendance.',
+        });
+    }
+}
+
+export const attendanceStatus = async (req, res) =>{
+    try {
+        
+        const employeeId = req.user.employee?._id;
+
+        if (!employeeId){
+            return res.status(400).json({
+                success: false,
+                message: 'Employee not found.',
+            });
+        }
+
+        const attendance = await Attendance.findOne({
+            employee: employeeId,
+            status: "Open",
+        })
+
+        return res.status(200).json({
+            success: true,
+            attendance
+        })
+
+    } catch (error) {
+        console.error('Attendance status error:', error);
+
+        return res.status(500).json({
+            success: false,
+            message: 'Failed to get attendance status.',
         });
     }
 }

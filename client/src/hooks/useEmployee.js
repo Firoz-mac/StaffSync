@@ -23,7 +23,7 @@ const useEmployee = () => {
 
             setError(message);
 
-            throw new Error(message)
+            throw new Error(message);
         } finally {
             setLoading(false);
         }
